@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile của tôi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00ffcc;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .bio {
+            font-size: 14px;
+            color: #b3b3b3;
+            margin-bottom: 25px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .link-btn:hover {
+            background: #00ffcc;
+            color: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 204, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Ảnh đại diện: Bạn có thể thay link ảnh vào chỗ dấu ngoặc kép -->
+        <img src="https://i.imgur.com/786k5bC.png" alt="Avatar" class="avatar">
+        
+        <!-- Tên và Bio -->
+        <div class="name">Azure Wolf <span class="nickname">(@Tr_Hiu)</span></div>
+        <div class="bio">Chào mừng bạn đến với góc nhỏ của mình! ✨</div>
+
+        <!-- Các nút liên kết -->
+        <div class="links">
+            <a href="https://www.facebook.com/share/1MKra5Gx7Y/?mibextid=wwXIfr" class="link-btn" target="_blank">🌐 Facebook Cá Nhân</a>
+            <a href="https://www.tiktok.com/@azure_wolf_vn" class="link-btn" target="_blank">🎬 TikTok</a>
+            <a href="https://discord.gg/mhXyQzSPHc" class="link-btn" target="_blank">💬 Discord Server</a>
+        </div>
+    </div>
+
+</body>
+</html>
