@@ -1,225 +1,184 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azure Wolf - Profile</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <title>Hiếu Trần | Personal Profile</title>
+    <meta name="description" content="Personal profile of Hiếu Trần - FurryMC Developer">
 
-        body {
-            background: linear-gradient(135deg, #0b0f19, #111827, #1f2937);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        .container {
-            width: 100%;
-            max-width: 420px;
-            text-align: center;
-            background: rgba(17, 24, 39, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 35px 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-        }
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        /* Avatar & Tên */
-        .avatar-box {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #8b5cf6;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
-        }
-
-        /* Huy hiệu Nitro Discord */
-        .nitro-badge {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            background: #5865f2;
-            color: white;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 3px 8px;
-            border-radius: 12px;
-            border: 2px solid #111827;
-            display: flex;
-            align-items: center;
-            gap: 3px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        .name {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .nickname {
-            font-size: 14px;
-            color: #9ca3af;
-            font-weight: normal;
-        }
-
-        .bio {
-            font-size: 14px;
-            color: #d1d5db;
-            margin-bottom: 20px;
-        }
-
-        /* Trình phát nhạc (Audio Player) */
-        .music-player {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 12px 15px;
-            margin-bottom: 22px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .music-info {
-            text-align: left;
-            flex-grow: 1;
-            overflow: hidden;
-        }
-
-        .music-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #ffffff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .music-artist {
-            font-size: 11px;
-            color: #9ca3af;
-        }
-
-        audio {
-            width: 100%;
-            height: 32px;
-            margin-top: 5px;
-        }
-
-        /* Khung các nút liên kết phong cách guns.lol */
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .link-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255, 255, 255, 0.04);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px 18px;
-            border-radius: 14px;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .link-btn:hover {
-            background: rgba(139, 92, 246, 0.15);
-            border-color: rgba(139, 92, 246, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.2);
-        }
-
-        .link-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .arrow {
-            color: #9ca3af;
-            font-size: 16px;
-            transition: transform 0.2s;
-        }
-
-        .link-btn:hover .arrow {
-            transform: translateX(3px);
-            color: #8b5cf6;
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <!-- Avatar & Huy hiệu Nitro -->
-        <div class="avatar-box">
-            <img src="https://cdn.discordapp.com/attachments/1530908270351614024/1530914835624103966/IMG_1064.jpg?ex=6a674f0b&is=6a65fd8b&hm=e8510578885adbbe314f5caaf34cf6b618a08802128ae3bb31580ee73615a514&" alt="Avatar" class="avatar">
-            <div class="nitro-badge" title="Discord Nitro Supporter">
-                <span>💎</span> Nitro
-            </div>
-        </div>
-        
-        <!-- Tên và Bio -->
-        <div class="name">Azure Wolf <span class="nickname">(Tr_Hiu)</span></div>
-        <div class="bio">Chào mừng bạn đến với góc nhỏ của mình! 🎧</div>
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="assets/background.mp4" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ video.
+    </video>
+    <div class="background-overlay"></div>
 
-        <!-- Khung Nhạc (Audio Player) -->
-        <div class="music-player">
-            <div class="music-info">
-                <div class="music-title">🎶 Tên Bài Hát Của Bạn</div>
-                <div class="music-artist">Nghệ sĩ / Lofi Chill</div>
-                <!-- Thay link nhạc mp3 vào thuộc tính src bên dưới -->
-                <audio controls loop>
-                    <source src="https://www.bensound.com/bensound-music/bensound-relaxing.mp3" type="audio/mpeg">
-                    Trình duyệt của bạn không hỗ trợ phát nhạc.
-                </audio>
-            </div>
-        </div>
+    <!-- Particles -->
+    <div id="particles"></div>
 
-        <!-- Danh sách liên kết phong cách guns.lol -->
-        <div class="links">
-            <a href="https://www.facebook.com/share/1MKra5Gx7Y/?mibextid=wwXIfr" class="link-btn" target="_blank">
-                <div class="link-left">🌐 Facebook Cá Nhân</div>
-                <div class="arrow">→</div>
-            </a>
-            <a href="https://www.tiktok.com/@azure_wolf_vn" class="link-btn" target="_blank">
-                <div class="link-left">🎬 TikTok</div>
-                <div class="arrow">→</div>
-            </a>
-            <a href="https://discord.gg/mhXyQzSPHc" class="link-btn" target="_blank">
-                <div class="link-left">💬 Discord Server</div>
-                <div class="arrow">→</div>
-            </a>
-        </div>
-    </div>
+    <!-- Main -->
+    <main class="container">
+
+        <!-- Profile Card -->
+        <section class="profile-card">
+
+            <!-- Avatar -->
+            <div class="avatar-wrapper">
+                <div class="avatar-glow"></div>
+                <img src="assets/avatar.png" alt="Hiếu Trần Avatar" class="avatar">
+                <div class="online-status">
+                    <span></span>
+                    Online
+                </div>
+            </div>
+
+            <!-- Name -->
+            <h1 class="profile-name">
+                Hiếu Trần
+                <span class="verified">
+                    <i class="fa-solid fa-check"></i>
+                </span>
+            </h1>
+
+            <!-- Username -->
+            <p class="username">
+                @hieutran
+            </p>
+
+            <!-- Bio -->
+            <p class="bio">
+                🐺 Furry enthusiast &nbsp;•&nbsp;
+                🎮 Minecraft Developer &nbsp;•&nbsp;
+                💻 Server Owner
+            </p>
+
+            <p class="bio-sub">
+                Building worlds, creating experiences
+                and working on something awesome. ✨
+            </p>
+
+            <!-- Social -->
+            <div class="social-links">
+                <a href="https://discord.gg/mhXyQzSPHc" target="_blank" class="social-button discord" title="Discord">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+
+                <a href="https://github.com/trngtrunghieu70g1-stack" target="_blank" class="social-button github"
+                    title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://www.facebook.com/share/1MKra5Gx7Y/?mibextid=wwXIfr" target="_blank"
+                    class="social-button facebook" title="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@azure_wolf_vn" target="_blank" class="social-button tiktok"
+                    title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- FurryMC Project Highlight -->
+            <div class="project-card">
+                <div class="project-icon">
+                    🐾
+                </div>
+                <div class="project-info">
+                    <h2>
+                        FurryMC
+                    </h2>
+                    <p>
+                        Minecraft Survival & RPG
+                    </p>
+                </div>
+                <a href="https://furrymc.net/" target="_blank" class="project-button">
+                    Visit
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- Website / Link List -->
+            <div class="link-list">
+                <a href="https://github.com/trngtrunghieu70g1-stack" target="_blank" class="link-item">
+                    <div class="link-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div class="link-text">
+                        <strong>GitHub</strong>
+                        <span>My projects & code</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+
+                <a href="https://discord.gg/mhXyQzSPHc" target="_blank" class="link-item">
+                    <div class="link-icon">
+                        <i class="fa-brands fa-discord"></i>
+                    </div>
+                    <div class="link-text">
+                        <strong>Discord</strong>
+                        <span>Let's chat together</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+
+                <a href="https://furrymc.net/" target="_blank" class="link-item">
+                    <div class="link-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div class="link-text">
+                        <strong>FurryMC</strong>
+                        <span>My Minecraft Server</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+            </div>
+
+            <!-- Footer -->
+            <footer>
+                <p>
+                    Made with
+                    <span class="heart">♥</span>
+                    by Hiếu Trần
+                </p>
+                <span class="copyright">
+                    © 2026 Hiếu Trần
+                </span>
+            </footer>
+
+        </section>
+
+    </main>
+
+    <!-- Music Button -->
+    <button id="musicButton" class="music-button" title="Play Music">
+        <i class="fa-solid fa-volume-xmark"></i>
+    </button>
+
+    <!-- Music -->
+    <audio id="backgroundMusic" src="assets/music.mp3" loop></audio>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>
