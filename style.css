@@ -184,63 +184,18 @@ body {
 ================================ */
 
 .profile-card {
-
     width: 100%;
-
     max-width: 560px;
-
     padding: 45px 35px;
-
     text-align: center;
-
     border-radius: 28px;
-
-    background:
-
-        rgba(
-            10,
-            13,
-            20,
-            0.72
-        );
-
-    border:
-
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.08
-        );
-
-    backdrop-filter:
-
-        blur(20px);
-
-    -webkit-backdrop-filter:
-
-        blur(20px);
-
-    box-shadow:
-
-        0 30px 80px
-        rgba(
-            0,
-            0,
-            0,
-            0.55
-        );
-
-    animation:
-
-        cardAppear
-        0.8s
-        ease
-        forwards;
-
+    background: rgba(10, 13, 20, 0.38); /* Đã giảm độ đậm để trong suốt hơn */
+    border: 1px solid rgba(255, 255, 255, 0.12); /* Tăng viền sáng nhẹ cho nổi bật */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    animation: cardAppear 0.8s ease forwards;
 }
-
 
 @keyframes cardAppear {
 
