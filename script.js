@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         floatingMusicBtn.addEventListener("click", togglePlay);
     }
 
-    // Cập nhật thanh tiến trình và thời gian chạy
+    // Cập nhật thanh tiến trình và thời gian chạy theo từng giây nhạc
     audio.addEventListener("timeupdate", () => {
         if (audio.duration) {
             const progressPercent = (audio.currentTime / audio.duration) * 100;
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Tua nhạc khi click vào thanh progress bar
+    // Cho phép click vào thanh tiến trình để tua nhạc chính xác
     progressContainer.addEventListener("click", (e) => {
         const width = progressContainer.clientWidth;
         const clickX = e.offsetX;
