@@ -1,230 +1,70 @@
-/* =================================
-   PARTICLES
-================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("backgroundMusic");
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const playPauseIcon = document.getElementById("playPauseIcon");
+    const musicDisc = document.querySelector(".music-disc");
+    const musicStatus = document.getElementById("musicStatus");
+    const progressBar = document.getElementById("progressBar");
+    const progressContainer = document.getElementById("progressContainer");
+    const musicTime = document.getElementById("musicTime");
+    
+    // Nút tròn nổi góc màn hình cũ (nếu có)
+    const floatingMusicBtn = document.getElementById("musicButton");
+    const floatingIcon = floatingMusicBtn ? floatingMusicBtn.querySelector("i") : null;
 
-const particlesContainer =
-    document.getElementById("particles");
-
-const particleCount = 45;
-
-
-for (
-    let i = 0;
-    i < particleCount;
-    i++
-) {
-
-    const particle =
-        document.createElement("div");
-
-    particle.classList.add(
-        "particle"
-    );
-
-    const size =
-        Math.random() * 3 + 1;
-
-    const left =
-        Math.random() * 100;
-
-    const duration =
-        Math.random() * 15 + 10;
-
-    const delay =
-        Math.random() * 15;
-
-
-    particle.style.width =
-        `${size}px`;
-
-    particle.style.height =
-        `${size}px`;
-
-    particle.style.left =
-        `${left}%`;
-
-    particle.style.animationDuration =
-        `${duration}s`;
-
-    particle.style.animationDelay =
-        `${delay}s`;
-
-
-    particlesContainer.appendChild(
-        particle
-    );
-
-}
-
-
-/* =================================
-   MUSIC
-================================= */
-
-const music =
-    document.getElementById(
-        "backgroundMusic"
-    );
-
-const musicButton =
-    document.getElementById(
-        "musicButton"
-    );
-
-
-let isPlaying = false;
-
-
-/* Play / Pause */
-
-musicButton.addEventListener(
-    "click",
-    () => {
-
-        if (isPlaying) {
-
-            music.pause();
-
-            isPlaying = false;
-
-            musicButton.classList.remove(
-                "playing"
-            );
-
-            musicButton.innerHTML =
-                '<i class="fa-solid fa-volume-xmark"></i>';
-
-        }
-
-        else {
-
-            music.play()
-                .then(() => {
-
-                    isPlaying = true;
-
-                    musicButton.classList.add(
-                        "playing"
-                    );
-
-                    musicButton.innerHTML =
-                        '<i class="fa-solid fa-volume-high"></i>';
-
-                })
-                .catch(
-                    error => {
-
-                        console.log(
-                            "Music could not play:",
-                            error
-                        );
-
-                    }
-                );
-
-        }
-
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
     }
-);
 
-
-/* =================================
-   MOUSE PARALLAX
-================================= */
-
-document.addEventListener(
-    "mousemove",
-    (event) => {
-
-        const x =
-            (window.innerWidth / 2 -
-            event.clientX) / 80;
-
-        const y =
-            (window.innerHeight / 2 -
-            event.clientY) / 80;
-
-
-        const background =
-            document.querySelector(
-                ".background"
-            );
-
-
-        if (background) {
-
-            background.style.transform =
-                `scale(1.05)
-                 translate(${x}px, ${y}px)`;
-
+    function togglePlay() {
+        if (audio.paused) {
+            audio.play().then(() => {
+                playPauseIcon.className = "fa-solid fa-pause";
+                musicDisc.classList.add("rotating");
+                musicStatus.textContent = "Đang phát...";
+                if (floatingMusicBtn) floatingMusicBtn.classList.add("playing");
+                if (floatingIcon) floatingIcon.className = "fa-solid fa-volume-high";
+            }).catch(err => console.log("Lỗi phát nhạc:", err));
+        } else {
+            audio.pause();
+            playPauseIcon.className = "fa-solid fa-play";
+            musicDisc.classList.remove("rotating");
+            musicStatus.textContent = "Đã tạm dừng";
+            if (floatingMusicBtn) floatingMusicBtn.classList.remove("playing");
+            if (floatingIcon) floatingIcon.className = "fa-solid fa-volume-xmark";
         }
-
     }
-);
 
+    if (playPauseBtn) {
+        playPauseBtn.addEventListener("click", togglePlay);
+    }
 
-/* =================================
-   PAGE VISIBILITY
-================================= */
+    if (floatingMusicBtn) {
+        floatingMusicBtn.addEventListener("click", togglePlay);
+    }
 
-document.addEventListener(
-    "visibilitychange",
-    () => {
-
-        if (
-            document.hidden &&
-            isPlaying
-        ) {
-
-            music.pause();
-
+    // Cập nhật thanh tiến trình
+    audio.addEventListener("timeupdate", () => {
+        if (audio.duration) {
+            const progressPercent = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+            musicTime.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
         }
+    });
 
-        else if (
-            !document.hidden &&
-            isPlaying
-        ) {
-
-            music.play()
-                .catch(() => {});
-
+    // Tua nhạc khi click vào thanh progress
+    progressContainer.addEventListener("click", (e) => {
+        const width = progressContainer.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        if (duration) {
+            audio.currentTime = (clickX / width) * duration;
         }
+    });
 
-    }
-);
-
-
-/* =================================
-   IMAGE ERROR FALLBACK
-================================= */
-
-const avatar =
-    document.querySelector(
-        ".avatar"
-    );
-
-
-avatar.addEventListener(
-    "error",
-    () => {
-
-        avatar.src =
-            "https://api.dicebear.com/9.x/bottts/svg?seed=HieuTran";
-
-    }
-);
-
-
-/* =================================
-   CONSOLE MESSAGE
-================================= */
-
-console.log(
-    "%c🐾 Welcome to Hiếu Trần's Profile!",
-    "font-size: 18px; font-weight: bold;"
-);
-
-console.log(
-    "%cFurryMC • Minecraft • Coding",
-    "font-size: 13px;"
-);
+    audio.addEventListener("loadedmetadata", () => {
+        musicTime.textContent = `0:00 / ${formatTime(audio.duration)}`;
+    });
+});

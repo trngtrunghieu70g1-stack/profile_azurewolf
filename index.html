@@ -57,7 +57,7 @@
 
             <!-- Username -->
             <p class="username">
-                @hieutran
+                @tr_hiu
             </p>
 
             <!-- Bio -->
@@ -116,40 +116,30 @@
                 </a>
             </div>
 
-            <!-- Website / Link List -->
-            <div class="link-list">
-                <a href="https://github.com/trngtrunghieu70g1-stack" target="_blank" class="link-item">
-                    <div class="link-icon">
-                        <i class="fa-brands fa-github"></i>
+            <!-- Music Player Card (Replaced .link-list) -->
+            <div class="music-player-card">
+                <div class="music-info">
+                    <div class="music-disc">
+                        <i class="fa-solid fa-compact-disc"></i>
                     </div>
-                    <div class="link-text">
-                        <strong>GitHub</strong>
-                        <span>My projects & code</span>
+                    <div class="music-text">
+                        <strong>Từng Là</strong>
+                        <span id="musicStatus">Đang phát nhạc nền...</span>
                     </div>
-                    <i class="fa-solid fa-chevron-right arrow"></i>
-                </a>
+                </div>
+                
+                <!-- Thanh tiến trình nhạc -->
+                <div class="music-progress-container" id="progressContainer">
+                    <div class="music-progress-bar" id="progressBar"></div>
+                </div>
 
-                <a href="https://discord.gg/mhXyQzSPHc" target="_blank" class="link-item">
-                    <div class="link-icon">
-                        <i class="fa-brands fa-discord"></i>
-                    </div>
-                    <div class="link-text">
-                        <strong>Discord</strong>
-                        <span>Let's chat together</span>
-                    </div>
-                    <i class="fa-solid fa-chevron-right arrow"></i>
-                </a>
-
-                <a href="https://furrymc.net/" target="_blank" class="link-item">
-                    <div class="link-icon">
-                        <i class="fa-solid fa-globe"></i>
-                    </div>
-                    <div class="link-text">
-                        <strong>FurryMC</strong>
-                        <span>My Minecraft Server</span>
-                    </div>
-                    <i class="fa-solid fa-chevron-right arrow"></i>
-                </a>
+                <!-- Các nút điều khiển -->
+                <div class="music-controls">
+                    <button id="playPauseBtn" class="control-btn" title="Phát / Tạm dừng">
+                        <i class="fa-solid fa-play" id="playPauseIcon"></i>
+                    </button>
+                    <span class="music-time" id="musicTime">0:00 / 0:00</span>
+                </div>
             </div>
 
             <!-- Footer -->
