@@ -118,27 +118,29 @@
 
             <!-- Music Player Card (Replaced .link-list) -->
             <div class="music-player-card">
-                <div class="music-info">
-                    <div class="music-disc">
-                        <i class="fa-solid fa-compact-disc"></i>
+                <div class="music-top-row">
+                    <div class="music-icon-box">
+                        <i class="fa-solid fa-music"></i>
                     </div>
-                    <div class="music-text">
-                        <strong>Từng Là</strong>
-                        <span id="musicStatus">Đang phát nhạc nền...</span>
+                    <div class="music-meta">
+                        <strong class="music-title">Tùng Là</strong>
+                        <span class="music-artist">Hiếu Trần</span>
                     </div>
                 </div>
-                
-                <!-- Thanh tiến trình nhạc -->
+
                 <div class="music-progress-container" id="progressContainer">
                     <div class="music-progress-bar" id="progressBar"></div>
                 </div>
 
-                <!-- Các nút điều khiển -->
-                <div class="music-controls">
-                    <button id="playPauseBtn" class="control-btn" title="Phát / Tạm dừng">
-                        <i class="fa-solid fa-play" id="playPauseIcon"></i>
-                    </button>
+                <div class="music-bottom-row">
                     <span class="music-time" id="musicTime">0:00 / 0:00</span>
+                    <div class="music-controls">
+                        <button id="prevBtn" class="player-btn" title="Bài trước"><i class="fa-solid fa-backward-step"></i></button>
+                        <button id="playPauseBtn" class="player-btn main-play" title="Phát / Tạm dừng">
+                            <i class="fa-solid fa-play" id="playPauseIcon"></i>
+                        </button>
+                        <button id="nextBtn" class="player-btn" title="Bài tiếp"><i class="fa-solid fa-forward-step"></i></button>
+                    </div>
                 </div>
             </div>
 
