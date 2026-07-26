@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressContainer = document.getElementById("progressContainer");
     const musicTime = document.getElementById("musicTime");
     
-    const floatingMusicBtn = document.getElementById("musicButton");
-    const floatingIcon = floatingMusicBtn ? floatingMusicBtn.querySelector("i") : null;
+    let isPlaying = false;
 
     function formatTime(seconds) {
         if (isNaN(seconds)) return "0:00";
@@ -19,25 +18,35 @@ document.addEventListener("DOMContentLoaded", () => {
     function togglePlay() {
         if (audio.paused) {
             audio.play().then(() => {
+                isPlaying = true;
                 playPauseIcon.className = "fa-solid fa-pause";
-                if (floatingMusicBtn) floatingMusicBtn.classList.add("playing");
-                if (floatingIcon) floatingIcon.className = "fa-solid fa-volume-high";
-            }).catch(err => console.log("Lỗi phát nhạc:", err));
+            }).catch(err => {
+                console.log("Trình duyệt chặn phát tự động:", err);
+            });
         } else {
             audio.pause();
+            isPlaying = false;
             playPauseIcon.className = "fa-solid fa-play";
-            if (floatingMusicBtn) floatingMusicBtn.classList.remove("playing");
-            if (floatingIcon) floatingIcon.className = "fa-solid fa-volume-xmark";
         }
     }
 
+    // Bấm vào nút Play trên khung nhạc
     if (playPauseBtn) {
-        playPauseBtn.addEventListener("click", togglePlay);
+        playPauseBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            togglePlay();
+        });
     }
 
-    if (floatingMusicBtn) {
-        floatingMusicBtn.addEventListener("click", togglePlay);
-    }
+    // Tự động phát nhạc khi người dùng tương tác click đầu tiên trên trang
+    document.body.addEventListener("click", () => {
+        if (audio.paused && !isPlaying) {
+            audio.play().then(() => {
+                isPlaying = true;
+                playPauseIcon.className = "fa-solid fa-pause";
+            }).catch(() => {});
+        }
+    }, { once: true });
 
     // Cập nhật thanh tiến trình và thời gian chạy theo từng giây nhạc
     audio.addEventListener("timeupdate", () => {
