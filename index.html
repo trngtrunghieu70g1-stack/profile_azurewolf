@@ -4,8 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiếu Trần | Personal Profile</title>
-    <meta name="description" content="Personal profile of Hiếu Trần - FurryMC Developer">
+
+    <title>AzureWolf VN | Personal Profile</title>
+    <meta name="description" content="Trang cá nhân của AzureWolf VN — Furry fursuit, Minecraft Developer và chủ máy chủ FurryMC.">
+    <meta name="author" content="Hiếu Trần">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#7c5cff">
+
+    <!-- Hiển thị khi chia sẻ lên Discord, Facebook và các mạng xã hội khác -->
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:site_name" content="AzureWolf VN">
+    <meta property="og:title" content="AzureWolf VN | Personal Profile">
+    <meta property="og:description" content="Furry fursuit, Minecraft Developer và chủ máy chủ FurryMC.">
+    <meta property="og:image" content="assets/avatar.png">
+    <meta property="og:image:alt" content="Ảnh đại diện của AzureWolf VN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AzureWolf VN | Personal Profile">
+    <meta name="twitter:description" content="Furry fursuit, Minecraft Developer và chủ máy chủ FurryMC.">
+    <meta name="twitter:image" content="assets/avatar.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/avatar.png" type="image/png">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,43 +43,53 @@
 <body>
 
     <!-- Background Video -->
-    <video autoplay muted loop playsinline class="bg-video">
+    <video autoplay muted loop playsinline preload="metadata" class="bg-video" aria-hidden="true">
         <source src="assets/background.mp4" type="video/mp4">
         Trình duyệt của bạn không hỗ trợ video.
     </video>
-    <div class="background-overlay"></div>
+    <div class="background-overlay" aria-hidden="true"></div>
 
     <!-- Particles -->
-    <div id="particles"></div>
+    <div id="particles" aria-hidden="true"></div>
+
+    <noscript>
+        <p class="noscript-message">Vui lòng bật JavaScript để sử dụng đầy đủ trình phát nhạc và hiệu ứng của trang.</p>
+    </noscript>
 
     <!-- Main -->
     <main class="container">
 
         <!-- Profile Card -->
-        <section class="profile-card">
+        <section class="profile-card" aria-labelledby="profileName">
 
             <!-- Avatar -->
             <div class="avatar-wrapper">
-                <div class="avatar-glow"></div>
-                <img src="assets/avatar.png" alt="Hiếu Trần Avatar" class="avatar">
-                <div class="online-status">
-                    <span></span>
+                <div class="avatar-glow" aria-hidden="true"></div>
+                <img
+                    src="assets/avatar.png"
+                    alt="Ảnh đại diện của AzureWolf VN"
+                    class="avatar"
+                    width="160"
+                    height="160"
+                    fetchpriority="high"
+                    decoding="async"
+                >
+                <div class="online-status" aria-label="Trạng thái: Online">
+                    <span aria-hidden="true"></span>
                     Online
                 </div>
             </div>
 
             <!-- Name -->
-            <h1 class="profile-name">
+            <h1 class="profile-name" id="profileName">
                 AzureWolf VN
-                <span class="verified">
-                    <i class="fa-solid fa-check"></i>
+                <span class="verified" title="Đã xác minh" aria-label="Tài khoản đã xác minh">
+                    <i class="fa-solid fa-check" aria-hidden="true"></i>
                 </span>
             </h1>
 
             <!-- Username -->
-            <p class="username">
-                @tr_hiu
-            </p>
+            <p class="username">@tr_hiu</p>
 
             <!-- Bio -->
             <p class="bio">
@@ -73,56 +104,69 @@
             </p>
 
             <!-- Social -->
-            <div class="social-links">
-                <a href="https://discord.gg/mhXyQzSPHc" target="_blank" class="social-button discord" title="Discord">
-                    <i class="fa-brands fa-discord"></i>
+            <nav class="social-links" aria-label="Liên kết mạng xã hội">
+                <a href="https://discord.gg/mhXyQzSPHc" target="_blank" rel="noopener noreferrer"
+                    class="social-button discord" title="Discord" aria-label="Tham gia Discord FurryMC">
+                    <i class="fa-brands fa-discord" aria-hidden="true"></i>
                 </a>
 
-                <a href="https://github.com/trngtrunghieu70g1-stack" target="_blank" class="social-button github"
-                    title="GitHub">
-                    <i class="fa-brands fa-github"></i>
+                <a href="https://github.com/trngtrunghieu70g1-stack" target="_blank" rel="noopener noreferrer"
+                    class="social-button github" title="GitHub" aria-label="Mở trang GitHub của AzureWolf VN">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
                 </a>
 
                 <a href="https://www.facebook.com/share/1MKra5Gx7Y/?mibextid=wwXIfr" target="_blank"
-                    class="social-button facebook" title="Facebook">
-                    <i class="fa-brands fa-facebook"></i>
+                    rel="noopener noreferrer" class="social-button facebook" title="Facebook"
+                    aria-label="Mở trang Facebook của AzureWolf VN">
+                    <i class="fa-brands fa-facebook" aria-hidden="true"></i>
                 </a>
 
-                <a href="https://www.tiktok.com/@azure_wolf_vn" target="_blank" class="social-button tiktok"
-                    title="TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
+                <a href="https://www.tiktok.com/@azure_wolf_vn" target="_blank" rel="noopener noreferrer"
+                    class="social-button tiktok" title="TikTok" aria-label="Mở trang TikTok của AzureWolf VN">
+                    <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
                 </a>
-            </div>
+            </nav>
 
             <!-- Divider -->
-            <div class="divider"></div>
+            <div class="divider" aria-hidden="true"></div>
 
             <!-- FurryMC Project Highlight -->
             <div class="project-card">
-                <!-- Đã thay thế biểu tượng dấu chân bằng thẻ ảnh -->
                 <div class="project-icon" style="padding: 0; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-                    <img src="assets/furrymc-logo.png" alt="FurryMC Logo" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img
+                        src="assets/furrymc-logo.png"
+                        alt="Logo FurryMC"
+                        width="64"
+                        height="64"
+                        loading="lazy"
+                        decoding="async"
+                        style="width: 100%; height: 100%; object-fit: cover;"
+                    >
                 </div>
                 <div class="project-info">
-                    <h2>
-                        FurryMC
-                    </h2>
-                    <p>
-                        Minecraft Survival & Lands
-                    </p>
+                    <h2>FurryMC</h2>
+                    <p>Minecraft Survival &amp; Lands</p>
                 </div>
-                <!-- Đã đổi sang trạng thái tạm tắt / coming soon và cập nhật domain furrymc.fun -->
-                <a href="https://furrymc.fun/" target="_blank" class="project-button" style="opacity: 0.6; pointer-events: none;" title="Đang bảo trì / Tạm tắt">
+                <span class="project-button" aria-disabled="true" title="Website đang được phát triển"
+                    style="opacity: 0.6; cursor: not-allowed;">
                     Coming Soon
-                    <i class="fa-solid fa-lock"></i>
-                </a>
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                </span>
             </div>
 
             <!-- Music Player Card -->
-            <div class="music-player-card">
+            <div class="music-player-card" aria-label="Trình phát nhạc">
                 <div class="music-top-row">
                     <div class="music-icon-box" style="padding: 0; overflow: hidden;">
-                        <img src="assets/music-cover.png" alt="Music Cover" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img
+                            src="assets/music-cover.png"
+                            alt="Ảnh bìa bài hát Fantasy"
+                            width="64"
+                            height="64"
+                            loading="lazy"
+                            decoding="async"
+                            style="width: 100%; height: 100%; object-fit: cover;"
+                        >
                     </div>
                     <div class="music-meta">
                         <strong class="music-title">Fantasy</strong>
@@ -130,18 +174,25 @@
                     </div>
                 </div>
 
-                <div class="music-progress-container" id="progressContainer">
+                <div class="music-progress-container" id="progressContainer" aria-label="Tiến trình bài hát">
                     <div class="music-progress-bar" id="progressBar"></div>
                 </div>
 
                 <div class="music-bottom-row">
-                    <span class="music-time" id="musicTime">0:00 / 0:00</span>
+                    <span class="music-time" id="musicTime" aria-live="off">0:00 / 0:00</span>
                     <div class="music-controls">
-                        <button id="prevBtn" class="player-btn" title="Bài trước"><i class="fa-solid fa-backward-step"></i></button>
-                        <button id="playPauseBtn" class="player-btn main-play" title="Phát / Tạm dừng">
-                            <i class="fa-solid fa-play" id="playPauseIcon"></i>
+                        <button id="prevBtn" class="player-btn" type="button" title="Bài trước"
+                            aria-label="Phát bài hát trước">
+                            <i class="fa-solid fa-backward-step" aria-hidden="true"></i>
                         </button>
-                        <button id="nextBtn" class="player-btn" title="Bài tiếp"><i class="fa-solid fa-forward-step"></i></button>
+                        <button id="playPauseBtn" class="player-btn main-play" type="button"
+                            title="Phát hoặc tạm dừng" aria-label="Phát nhạc">
+                            <i class="fa-solid fa-play" id="playPauseIcon" aria-hidden="true"></i>
+                        </button>
+                        <button id="nextBtn" class="player-btn" type="button" title="Bài tiếp theo"
+                            aria-label="Phát bài hát tiếp theo">
+                            <i class="fa-solid fa-forward-step" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -150,21 +201,18 @@
             <footer>
                 <p>
                     Made with
-                    <span class="heart">♥</span>
+                    <span class="heart" aria-label="tình yêu">♥</span>
                     by Azure Wolf
                 </p>
-                <span class="copyright">
-                    © 2026 Hiếu Trần
-                </span>
+                <span class="copyright">© 2026 Hiếu Trần</span>
             </footer>
 
         </section>
 
     </main>
 
-
     <!-- Music -->
-    <audio id="backgroundMusic" src="assets/music.mp3" loop></audio>
+    <audio id="backgroundMusic" src="assets/music.mp3" preload="metadata" loop></audio>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
