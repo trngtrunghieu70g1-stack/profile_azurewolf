@@ -28,10 +28,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Hiếu Trần","alternateName":"AzureWolf VN","url":"https://azurewolf.io.vn/","image":"https://azurewolf.io.vn/assets/avatar.png","sameAs":["https://github.com/trngtrunghieu70g1-stack","https://www.tiktok.com/@azure_wolf_vn"]}</script>
 </head>
 <body>
+  <div id="enterScreen" class="enter-screen" role="button" tabindex="0" aria-label="Nhấp để mở trang cá nhân và phát nhạc">
+    <div class="enter-content">
+      <img src="assets/avatar.png" alt="" width="104" height="104">
+      <h2>AzureWolf VN</h2>
+      <p>Nhấp vào đây để tiếp tục</p>
+      <span class="enter-icon" aria-hidden="true"><i class="fa-solid fa-arrow-pointer"></i></span>
+    </div>
+  </div>
   <video class="bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/background.mp4" type="video/mp4"></video>
   <div class="background-overlay" aria-hidden="true"></div>
   <div id="particles" aria-hidden="true"></div>
@@ -63,7 +71,14 @@
       <section class="music-card" aria-label="Trình phát nhạc">
         <img src="assets/music-cover.png" alt="Ảnh bìa Fantasy — Hưng Gấu" width="52" height="52" loading="lazy">
         <div class="music-content">
-          <div class="music-heading"><span><strong>Fantasy</strong><small>Hưng Gấu</small></span><button id="playPauseBtn" class="play-button" type="button" aria-label="Phát nhạc"><i id="playPauseIcon" class="fa-solid fa-play" aria-hidden="true"></i></button></div>
+          <div class="music-heading">
+            <span><strong>Fantasy</strong><small>Hưng Gấu</small></span>
+            <div class="music-controls">
+              <button id="prevBtn" class="player-button" type="button" aria-label="Phát lại bài hát"><i class="fa-solid fa-backward-step" aria-hidden="true"></i></button>
+              <button id="playPauseBtn" class="play-button" type="button" aria-label="Phát nhạc"><i id="playPauseIcon" class="fa-solid fa-play" aria-hidden="true"></i></button>
+              <button id="nextBtn" class="player-button" type="button" aria-label="Chuyển bài tiếp theo"><i class="fa-solid fa-forward-step" aria-hidden="true"></i></button>
+            </div>
+          </div>
           <button class="progress-track" id="progressContainer" type="button" aria-label="Tua bài hát"><span id="progressBar"></span></button>
           <span class="music-time" id="musicTime" aria-live="off">0:00 / 0:00</span>
         </div>
@@ -73,6 +88,6 @@
   </main>
   <noscript><p class="noscript-message">Hãy bật JavaScript để sử dụng trình phát nhạc.</p></noscript>
   <audio id="backgroundMusic" src="assets/music.mp3" preload="metadata" loop></audio>
-  <script src="script.js?v=3" defer></script>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>

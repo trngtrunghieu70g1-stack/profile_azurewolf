@@ -3,6 +3,14 @@
 html{color-scheme:dark}
 body{min-height:100vh;overflow-x:hidden;background:#070a11;color:var(--text);font-family:"Inter",system-ui,sans-serif}
 button,a{-webkit-tap-highlight-color:transparent}
+.enter-screen{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 45%,rgba(40,111,177,.2),transparent 34%),rgba(3,6,12,.97);cursor:pointer;transition:opacity .7s ease,visibility .7s ease;backdrop-filter:blur(16px)}
+.enter-screen.is-hidden{visibility:hidden;opacity:0;pointer-events:none}
+.enter-content{text-align:center;animation:enterPulse 2s ease-in-out infinite}
+.enter-content img{width:104px;height:104px;border:3px solid rgba(255,255,255,.16);border-radius:50%;object-fit:cover;box-shadow:0 0 45px rgba(72,167,255,.35)}
+.enter-content h2{margin-top:17px;font-size:24px;letter-spacing:-.5px}
+.enter-content p{margin-top:8px;color:#a9b3c5;font-size:12px}
+.enter-icon{display:grid;width:38px;height:38px;margin:18px auto 0;place-items:center;border:1px solid rgba(255,255,255,.13);border-radius:50%;background:rgba(255,255,255,.06);color:#fff}
+@keyframes enterPulse{50%{transform:scale(1.035);opacity:.78}}
 .bg-video,.background-overlay,#particles{position:fixed;inset:0;width:100%;height:100%}
 .bg-video{z-index:-3;object-fit:cover}
 .background-overlay{z-index:-2;background:radial-gradient(circle at 50% 15%,rgba(38,151,255,.22),transparent 42%),linear-gradient(145deg,rgba(4,7,14,.78),rgba(4,7,14,.96))}
@@ -36,7 +44,10 @@ h1{font-size:clamp(25px,6vw,30px);letter-spacing:-.8px}
 .project-info{min-width:0;flex:1}.project-info h2{font-size:14px}.project-info p{margin-top:4px;color:var(--muted);font-size:11px}
 .project-badge{display:flex;align-items:center;gap:5px;padding:7px 9px;border-radius:9px;background:rgba(73,151,255,.14);color:#bcd9ff;font-size:10px;font-weight:600;white-space:nowrap}
 .music-card{margin-top:11px;background:rgba(8,12,21,.48)}
-.music-content{min-width:0;flex:1}.music-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}.music-heading span{display:flex;min-width:0;flex-direction:column}.music-heading strong{overflow:hidden;font-size:12px;text-overflow:ellipsis;white-space:nowrap}.music-heading small,.music-time{color:var(--muted);font-size:10px}
+.music-content{min-width:0;flex:1}.music-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}.music-heading>span{display:flex;min-width:0;flex-direction:column}.music-heading strong{overflow:hidden;font-size:12px;text-overflow:ellipsis;white-space:nowrap}.music-heading small,.music-time{color:var(--muted);font-size:10px}
+.music-controls{display:flex;align-items:center;gap:3px}
+.player-button{display:grid;width:27px;height:27px;place-items:center;border:0;border-radius:50%;background:transparent;color:#9ba7ba;font-size:10px;cursor:pointer;transition:.2s}
+.player-button:hover{color:#fff;transform:scale(1.1)}
 .play-button{display:grid;width:31px;height:31px;place-items:center;border:0;border-radius:50%;background:#fff;color:#111827;cursor:pointer;transition:.2s}.play-button:hover{transform:scale(1.07)}
 .progress-track{display:block;width:100%;height:4px;margin:9px 0 6px;overflow:hidden;border:0;border-radius:99px;background:rgba(255,255,255,.16);cursor:pointer}
 .progress-track span{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#54b5ff,#b979ff)}
