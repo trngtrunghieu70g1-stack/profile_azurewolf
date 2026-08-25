@@ -43,4 +43,10 @@ h1{font-size:clamp(25px,6vw,30px);letter-spacing:-.8px}
 footer{margin-top:24px;color:#778196;font-size:10px}footer p span{color:#ff5b78}footer small{display:block;margin-top:5px;font-size:9px;opacity:.8}
 .noscript-message{position:fixed;right:12px;bottom:12px;padding:10px;border-radius:10px;background:#8b2335;font-size:12px}
 @media(max-width:560px){.page-shell{padding:16px 12px}.profile-card{padding:28px 18px;border-radius:22px}.avatar-wrapper{width:108px;height:108px}.roles{font-size:12px}.project-badge{font-size:0}.project-badge i{font-size:11px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important}.bg-video{display:none}}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
