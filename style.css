@@ -21,6 +21,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 .profile-card{width:min(100%,520px);padding:34px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);box-shadow:0 30px 90px rgba(0,0,0,.48);text-align:center;backdrop-filter:blur(20px);animation:appear .65s ease both}
 @keyframes appear{from{transform:translateY(20px) scale(.98);opacity:0}}
 .avatar-wrapper{position:relative;width:120px;height:120px;margin:0 auto 18px}
+.avatar-wrapper picture{display:block;width:100%;height:100%}
 .avatar{position:relative;width:100%;height:100%;border:3px solid rgba(255,255,255,.16);border-radius:50%;object-fit:cover}
 .avatar-glow{position:absolute;inset:-12px;border-radius:50%;background:radial-gradient(circle,rgba(46,169,255,.4),transparent 68%);filter:blur(12px);animation:pulse 2.8s ease-in-out infinite alternate}
 @keyframes pulse{to{transform:scale(1.12);opacity:.65}}
@@ -40,8 +41,12 @@ h1{font-size:clamp(25px,6vw,30px);letter-spacing:-.8px}
 .project-card,.music-card{display:flex;align-items:center;gap:13px;padding:13px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.045);text-align:left;transition:.22s ease}
 .project-card{background:linear-gradient(135deg,rgba(35,140,255,.14),rgba(255,255,255,.035))}
 .project-card:hover,.music-card:hover{transform:translateY(-2px);border-color:rgba(83,170,255,.35)}
-.project-card>img,.music-card>img{flex:0 0 auto;width:48px;height:48px;border-radius:13px;object-fit:cover}
+.project-card>img,.project-card>picture,.music-card>img{flex:0 0 auto;width:48px;height:48px;border-radius:13px;object-fit:cover;overflow:hidden}
+.project-card>picture img{width:100%;height:100%;object-fit:cover}
 .project-info{min-width:0;flex:1}.project-info h2{font-size:14px}.project-info p{margin-top:4px;color:var(--muted);font-size:11px}
+.server-card{text-align:left}.server-dot{display:inline-block;width:7px;height:7px;margin-right:4px;border-radius:50%;background:#687386}.server-dot.checking{animation:statusBlink 1s infinite}.server-dot.online{background:#35e58a;box-shadow:0 0 8px rgba(53,229,138,.7)}.server-dot.offline{background:#ff5d70}.server-dot.unknown{background:#f1b84b}
+@keyframes statusBlink{50%{opacity:.35}}
+.server-ip{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 8px;border:1px solid rgba(95,174,255,.2);border-radius:8px;background:rgba(66,146,255,.1);color:#cbe4ff;font-size:9px;cursor:pointer;transition:.2s}.server-ip:hover{background:rgba(66,146,255,.2);transform:translateY(-1px)}.server-ip code{font-family:inherit;font-weight:600}
 .project-badge{display:flex;align-items:center;gap:5px;padding:7px 9px;border-radius:9px;background:rgba(73,151,255,.14);color:#bcd9ff;font-size:10px;font-weight:600;white-space:nowrap}
 .music-card{margin-top:11px;background:rgba(8,12,21,.48)}
 .music-content{min-width:0;flex:1}.music-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}.music-heading>span{display:flex;min-width:0;flex-direction:column}.music-heading strong{overflow:hidden;font-size:12px;text-overflow:ellipsis;white-space:nowrap}.music-heading small,.music-time{color:var(--muted);font-size:10px}
@@ -51,9 +56,12 @@ h1{font-size:clamp(25px,6vw,30px);letter-spacing:-.8px}
 .play-button{display:grid;width:31px;height:31px;place-items:center;border:0;border-radius:50%;background:#fff;color:#111827;cursor:pointer;transition:.2s}.play-button:hover{transform:scale(1.07)}
 .progress-track{display:block;width:100%;height:4px;margin:9px 0 6px;overflow:hidden;border:0;border-radius:99px;background:rgba(255,255,255,.16);cursor:pointer}
 .progress-track span{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#54b5ff,#b979ff)}
-footer{margin-top:24px;color:#778196;font-size:10px}footer p span{color:#ff5b78}footer small{display:block;margin-top:5px;font-size:9px;opacity:.8}
+.volume-control{display:flex;align-items:center;gap:7px;margin-top:7px;color:#8d99ad;font-size:9px}.volume-control input{width:84px;height:3px;accent-color:#7ebfff;cursor:pointer}.volume-control span{width:28px;font-variant-numeric:tabular-nums}
+.skills-section{margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.035);text-align:left}.skills-section h2{font-size:12px}.skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.skill-tags span{padding:6px 8px;border:1px solid rgba(91,169,255,.16);border-radius:8px;background:rgba(61,135,255,.08);color:#b9cce5;font-size:9px}
+footer{display:flex;flex-direction:column;gap:5px;margin-top:20px;color:#778196;font-size:10px}footer p span{color:#ff5b78}footer p:first-child span{color:#9fb0c7;font-variant-numeric:tabular-nums}footer small{font-size:9px;opacity:.8}
+.status.online i{background:#35e58a}.status.idle i{background:#f1b84b;box-shadow:0 0 10px #f1b84b}.status.dnd i{background:#ff5d70;box-shadow:0 0 10px #ff5d70}.status.offline i{background:#687386;box-shadow:none}
 .noscript-message{position:fixed;right:12px;bottom:12px;padding:10px;border-radius:10px;background:#8b2335;font-size:12px}
-@media(max-width:560px){.page-shell{padding:16px 12px}.profile-card{padding:28px 18px;border-radius:22px}.avatar-wrapper{width:108px;height:108px}.roles{font-size:12px}.project-badge{font-size:0}.project-badge i{font-size:11px}}
+@media(max-width:560px){.page-shell{padding:16px 12px}.profile-card{padding:28px 18px;border-radius:22px}.avatar-wrapper{width:108px;height:108px}.roles{font-size:12px}.server-ip span{display:none}}
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         scroll-behavior: auto !important;
