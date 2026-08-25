@@ -1,0 +1,10 @@
+{
+  "name": "AzureWolf VN | Hiếu Trần",
+  "short_name": "AzureWolf VN",
+  "description": "Trang cá nhân của Hiếu Trần — Minecraft Developer và chủ máy chủ FurryMC.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070a11",
+  "theme_color": "#080b14",
+  "icons": [{"src":"assets/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]
+}
