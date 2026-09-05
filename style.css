@@ -83,3 +83,20 @@ body{height:100svh;overflow:hidden}.topbar{background:rgba(5,13,24,.14);border-c
   .tag-two{right:0;bottom:72px}
   .status-card{left:0;bottom:40px}
 }
+
+/* Giu video background luon nam phia sau noi dung, khong bi an sau body */
+body{isolation:isolate}
+.bg-video{
+  z-index:0;
+  pointer-events:none;
+  background:#050c16 url("assets/background-poster.jpg") center/cover no-repeat;
+}
+.backdrop{
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(100deg,rgba(2,8,17,.88) 10%,rgba(4,14,27,.66) 52%,rgba(4,12,23,.82)),
+    radial-gradient(circle at 75% 20%,rgba(53,181,255,.18),transparent 38%);
+}
+.glow{z-index:1}
+main{z-index:2}
