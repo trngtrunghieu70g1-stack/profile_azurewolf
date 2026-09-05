@@ -19,7 +19,7 @@ body{height:100svh;overflow:hidden}.topbar{background:rgba(5,13,24,.14);border-c
 
 /* Can lai khung anh nhan vat */
 .portrait-stage{
-  min-height:600px;
+  min-height:520px;
   padding-bottom:0;
   display:grid;
   place-items:center;
@@ -28,8 +28,8 @@ body{height:100svh;overflow:hidden}.topbar{background:rgba(5,13,24,.14);border-c
 .portrait-stage > picture{
   position:relative;
   display:block;
-  width:min(420px,82vw);
-  aspect-ratio:4 / 5;
+  width:min(370px,76vw);
+  aspect-ratio:1183 / 1329;
   margin:auto;
   z-index:1;
 }
@@ -39,37 +39,37 @@ body{height:100svh;overflow:hidden}.topbar{background:rgba(5,13,24,.14);border-c
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center top;
-  border-radius:34px;
+  object-position:center;
+  border-radius:38px;
 }
 
 /* Vong tron cu khong con hop voi khung poster */
 .portrait-ring{display:none}
 
 .tag-one{
-  top:105px;
-  right:2px;
+  top:92px;
+  right:10px;
 }
 
 .tag-two{
-  right:-10px;
+  right:0;
   bottom:105px;
 }
 
 .status-card{
-  left:8px;
-  bottom:65px;
+  left:12px;
+  bottom:60px;
 }
 
 @media(max-width:950px){
-  .portrait-stage{min-height:590px}
+  .portrait-stage{min-height:510px}
 }
 
 @media(max-width:560px){
-  .portrait-stage{min-height:480px;padding-bottom:0}
-  .portrait-stage > picture{width:min(310px,82vw)}
+  .portrait-stage{min-height:430px;padding-bottom:0}
+  .portrait-stage > picture{width:min(300px,78vw)}
   .portrait-stage > picture img{border-radius:24px}
-  .tag-one{top:55px;right:0}
-  .tag-two{right:-2px;bottom:75px}
-  .status-card{left:0;bottom:45px}
+  .tag-one{top:62px;right:0}
+  .tag-two{right:0;bottom:72px}
+  .status-card{left:0;bottom:40px}
 }
