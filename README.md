@@ -1,4 +1,4 @@
-# AzureWolf VN — Personal Profile
+# AzureWolf VN — Founder Profile
 
 Website profile tĩnh của Hiếu Trần (AzureWolf VN), tối ưu để triển khai bằng GitHub Pages.
 
@@ -15,11 +15,24 @@ Website profile tĩnh của Hiếu Trần (AzureWolf VN), tối ưu để triể
 
 ## Cấu hình tính năng động
 
-Mở `config.js` và chỉnh ba giá trị: `minecraftServerIp`, `discordUserId`, `counterApiUrl`.
+Mở `config.js` để chỉnh `minecraftServerIp`, `discordUserId`, `counterApiUrl` và thông tin ủng hộ.
 
 - `minecraftServerIp`: địa chỉ Java server dùng cho trạng thái và nút sao chép.
 - `discordUserId`: điền Discord User ID gồm 17–20 chữ số. Tài khoản cần tham gia máy chủ Lanyard để API trả trạng thái.
 - `counterApiUrl`: URL backend/API riêng dùng để tăng lượt xem toàn cầu. Khi để trống, web dùng bộ đếm cục bộ trên từng trình duyệt và không giả vờ đó là tổng lượt xem toàn cầu.
+
+## Mục “Nuôi tôi được chứ?”
+
+Điền bốn giá trị sau trong `config.js` để bật VietQR tự động:
+
+```js
+bankCode: "BIDV",
+bankAccount: "SỐ_TÀI_KHOẢN",
+bankAccountName: "TEN CHU TAI KHOAN",
+donationNote: "NUOIAZUREWOLF"
+```
+
+Khi chưa điền, website hiện trạng thái “đang được chuẩn bị” và nút mở Discord. Khi đã điền, người xem có thể chọn 20.000đ, 50.000đ, 100.000đ hoặc tùy tâm; mã QR tự đổi theo số tiền.
 
 ## Ghi nhớ trình phát nhạc
 
