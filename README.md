@@ -38,7 +38,7 @@ Khi chưa điền, website hiện trạng thái “đang được chuẩn bị�
 
 Web lưu `azurewolfMusicTime` và `azurewolfMusicVolume` trong `localStorage`. Khi người dùng quay lại bằng cùng trình duyệt, bài nhạc tiếp tục từ vị trí gần nhất và giữ nguyên âm lượng. Dữ liệu chỉ nằm trên thiết bị của người dùng, không được gửi lên máy chủ.
 
-Trình phát nhạc nằm cố định ở góc phải, có thể thu nhỏ thành ảnh bìa. Thanh điều hướng sử dụng ba tab `Về mình`, `FurryMC` và `Nuôi tôi`, chuyển nội dung ngay lập tức thay vì cuộn trang.
+Trình phát nhạc nằm trong khu vực bên phải của trang `Về mình`, ngay dưới ảnh đại diện. Thanh điều hướng sử dụng ba tab `Về mình`, `FurryMC` và `Nuôi tôi`, thay toàn bộ nội dung ngay trong màn hình thay vì cuộn xuống section khác.
 
 Khi đã điền `discordUserId`, thẻ Discord sẽ ưu tiên hiển thị bài hát Spotify, sau đó đến game hoặc hoạt động công khai khác. Dữ liệu được làm mới sau mỗi 15 giây.
 

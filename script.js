@@ -6,6 +6,7 @@
   const music = $("#backgroundMusic");
   const player = $("#musicPlayer");
   const playIcon = $("#musicPlay i");
+  let activityStartedAt = 0;
   let toastTimer;
 
   function toast(message) {
@@ -28,7 +29,6 @@
   }
   $("#enterScreen").addEventListener("click", enter, { once: true });
   $("#enterScreen").addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") enter(); }, { once: true });
-  $("#soundToggle").addEventListener("click", () => player.classList.remove("minimized"));
   music.addEventListener("loadedmetadata", () => { const saved = Number(localStorage.getItem("azurewolfMusicTime") || 0); if (saved > 0 && saved < music.duration) music.currentTime = saved; });
   music.addEventListener("volumechange", () => localStorage.setItem("azurewolfMusicVolume", String(music.volume)));
   window.addEventListener("beforeunload", () => localStorage.setItem("azurewolfMusicTime", String(music.currentTime || 0)));
@@ -57,8 +57,6 @@
   $("#musicVolume").value = String(Number(localStorage.getItem("azurewolfMusicVolume") || .55));
   music.volume = Number($("#musicVolume").value);
   $("#musicVolume").addEventListener("input", e => { music.volume = Number(e.target.value); });
-  $("#musicMinimize").addEventListener("click", e => { e.stopPropagation(); player.classList.add("minimized"); });
-  player.addEventListener("click", () => { if (player.classList.contains("minimized")) player.classList.remove("minimized"); });
 
   const ip = cfg.minecraftServerIp || "furrymc.fun";
   $("#copyIpBtn").dataset.ip = ip;
@@ -71,6 +69,22 @@
     else el.innerHTML = `<i class="offline"></i> Máy chủ đang ngoại tuyến`;
   }).catch(() => { $("#serverStatus").innerHTML = `<i class="checking"></i> Chưa thể kiểm tra trạng thái`; });
 
+  function discordAssetUrl(activity) {
+    const asset = activity?.assets?.large_image;
+    if (!asset) return "";
+    if (asset.startsWith("mp:")) return `https://media.discordapp.net/${asset.slice(3)}`;
+    if (asset.startsWith("https://")) return asset;
+    return activity.application_id ? `https://cdn.discordapp.com/app-assets/${activity.application_id}/${asset}.png` : "";
+  }
+  function updateActivityTime() {
+    const el = $("#discordActivityTime");
+    if (!activityStartedAt) { el.textContent = ""; return; }
+    const seconds = Math.max(0, Math.floor((Date.now() - activityStartedAt) / 1000));
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor(seconds % 3600 / 60);
+    const secs = seconds % 60;
+    el.textContent = `Đã hoạt động ${hours ? `${hours} giờ ` : ""}${minutes} phút ${String(secs).padStart(2, "0")} giây`;
+  }
   function updateDiscord() { if (!cfg.discordUserId) { $("#discordActivityName").textContent = "Chưa cấu hình Discord User ID"; $("#discordActivityDetail").textContent = "Điền discordUserId trong config.js"; return; } fetch(`https://api.lanyard.rest/v1/users/${cfg.discordUserId}`).then(r => r.json()).then(({data}) => {
     const states = {online:"Đang hoạt động",idle:"Đang rảnh",dnd:"Không làm phiền",offline:"Đang ngoại tuyến"};
     $("#discordStatusText").textContent = states[data?.discord_status] || "Đang ngoại tuyến";
@@ -82,21 +96,30 @@
       $("#discordActivityType").textContent = "ĐANG NGHE SPOTIFY";
       $("#discordActivityName").textContent = spotify.song || "Spotify";
       $("#discordActivityDetail").textContent = `${spotify.artist || "Không rõ nghệ sĩ"}${spotify.album ? ` · ${spotify.album}` : ""}`;
+      $("#discordActivityIcon").className = "fa-brands fa-spotify";
+      activityStartedAt = Number(spotify.timestamps?.start || 0);
       image.src = spotify.album_art_url || ""; image.hidden = !spotify.album_art_url;
     } else if (activity) {
       $("#discordActivityType").textContent = activity.type === 0 ? "ĐANG CHƠI" : "HOẠT ĐỘNG DISCORD";
       $("#discordActivityName").textContent = activity.name || states[data?.discord_status];
       $("#discordActivityDetail").textContent = activity.details || activity.state || states[data?.discord_status];
-      image.hidden = true;
+      $("#discordActivityIcon").className = activity.name?.toLowerCase().includes("modrinth") ? "fa-solid fa-cube" : "fa-solid fa-gamepad";
+      activityStartedAt = Number(activity.timestamps?.start || 0);
+      const assetUrl = discordAssetUrl(activity);
+      image.src = assetUrl; image.hidden = !assetUrl;
     } else {
       $("#discordActivityType").textContent = "TRẠNG THÁI DISCORD";
       $("#discordActivityName").textContent = states[data?.discord_status] || "Đang ngoại tuyến";
       $("#discordActivityDetail").textContent = "Hiện không có hoạt động công khai";
+      $("#discordActivityIcon").className = "fa-brands fa-discord";
+      activityStartedAt = 0;
       image.hidden = true;
     }
+    updateActivityTime();
   }).catch(() => { $("#discordActivityName").textContent = "Không thể tải hoạt động"; }); }
   updateDiscord();
   setInterval(updateDiscord, 15000);
+  setInterval(updateActivityTime, 1000);
 
   const localViews = Number(localStorage.getItem("azurewolf-views") || 0) + 1;
   localStorage.setItem("azurewolf-views", String(localViews));
