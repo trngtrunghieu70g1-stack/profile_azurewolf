@@ -28,9 +28,11 @@ body{height:100svh;overflow:hidden}.topbar{background:rgba(5,13,24,.14);border-c
 .portrait-stage > picture{
   position:relative;
   display:block;
-  width:min(370px,76vw);
-  aspect-ratio:1183 / 1329;
+  width:min(350px,74vw);
+  aspect-ratio:1;
   margin:auto;
+  overflow:hidden;
+  border-radius:50%;
   z-index:1;
 }
 
@@ -39,26 +41,33 @@ body{height:100svh;overflow:hidden}.topbar{background:rgba(5,13,24,.14);border-c
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center;
-  border-radius:38px;
+  object-position:center 34%;
+  border-radius:50%;
 }
 
-/* Vong tron cu khong con hop voi khung poster */
-.portrait-ring{display:none}
+/* Vong vien dong bo voi anh tron */
+.portrait-ring{
+  display:block;
+  width:390px;
+  height:390px;
+  z-index:0;
+}
+
+.status-card,.floating-tag{z-index:4}
 
 .tag-one{
-  top:92px;
-  right:10px;
+  top:86px;
+  right:0;
 }
 
 .tag-two{
-  right:0;
-  bottom:105px;
+  right:-2px;
+  bottom:100px;
 }
 
 .status-card{
-  left:12px;
-  bottom:60px;
+  left:0;
+  bottom:72px;
 }
 
 @media(max-width:950px){
@@ -67,8 +76,9 @@ body{height:100svh;overflow:hidden}.topbar{background:rgba(5,13,24,.14);border-c
 
 @media(max-width:560px){
   .portrait-stage{min-height:430px;padding-bottom:0}
-  .portrait-stage > picture{width:min(300px,78vw)}
-  .portrait-stage > picture img{border-radius:24px}
+  .portrait-stage > picture{width:min(285px,74vw)}
+  .portrait-stage > picture img{border-radius:50%}
+  .portrait-ring{width:315px;height:315px}
   .tag-one{top:62px;right:0}
   .tag-two{right:0;bottom:72px}
   .status-card{left:0;bottom:40px}
