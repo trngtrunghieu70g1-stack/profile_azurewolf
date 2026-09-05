@@ -63,11 +63,27 @@
   $("#copyIpBtn strong").textContent = ip;
   $("#copyIpBtn").addEventListener("click", () => copy(ip, `Đã sao chép ${ip}`));
 
-  fetch(`https://api.mcsrvstat.us/3/${encodeURIComponent(ip)}`).then(r => r.json()).then(data => {
+  async function updateServerStatus() {
     const el = $("#serverStatus");
-    if (data.online) el.innerHTML = `<i></i> Đang hoạt động · ${data.players?.online ?? 0} người chơi`;
-    else el.innerHTML = `<i class="offline"></i> Máy chủ đang ngoại tuyến`;
-  }).catch(() => { $("#serverStatus").innerHTML = `<i class="checking"></i> Chưa thể kiểm tra trạng thái`; });
+    const endpoints = [
+      `https://api.mcsrvstat.us/3/${encodeURIComponent(ip)}`,
+      `https://api.mcstatus.io/v2/status/java/${encodeURIComponent(ip)}`
+    ];
+    const results = await Promise.allSettled(endpoints.map(url => fetch(url, {cache:"no-store"}).then(r => {
+      if (!r.ok) throw new Error("Status API error");
+      return r.json();
+    })));
+    const responses = results.filter(r => r.status === "fulfilled").map(r => r.value);
+    const online = responses.find(data => data.online === true);
+    if (online) {
+      const players = online.players?.online ?? 0;
+      el.innerHTML = `<i></i> Máy chủ đang hoạt động · ${players} người chơi`;
+    } else {
+      el.innerHTML = `<i class="checking"></i> Chưa thể xác nhận trạng thái máy chủ`;
+    }
+  }
+  updateServerStatus();
+  setInterval(updateServerStatus, 60000);
 
   function discordAssetUrl(activity) {
     const asset = activity?.assets?.large_image;
@@ -90,7 +106,9 @@
     $("#discordStatusText").textContent = states[data?.discord_status] || "Đang ngoại tuyến";
     $("#discordDot").style.background = ({online:"#42e28a",idle:"#f6c85f",dnd:"#f36b7b",offline:"#788999"})[data?.discord_status] || "#788999";
     const spotify = data?.spotify;
-    const activity = data?.activities?.find(a => a.type === 0 || a.type === 2 || a.type === 3 || a.type === 4);
+    const activities = data?.activities || [];
+    const activity = activities.find(a => a.type === 0 && a.name !== "Custom Status")
+      || activities.find(a => (a.type === 2 || a.type === 3) && a.name !== "Custom Status");
     const image = $("#discordActivityImage");
     if (spotify) {
       $("#discordActivityType").textContent = "ĐANG NGHE SPOTIFY";
