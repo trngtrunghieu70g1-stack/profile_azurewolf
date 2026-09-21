@@ -1,29 +1,200 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AzureWolf VN | Hiếu Trần</title>
-  <meta name="description" content="Trang cá nhân của Hiếu Trần — AzureWolf VN, Minecraft Developer và Founder FurryMC."><meta name="theme-color" content="#07111f">
-  <link rel="canonical" href="https://azurewolf.io.vn/"><meta property="og:type" content="profile"><meta property="og:title" content="AzureWolf VN | Hiếu Trần"><meta property="og:description" content="Minecraft Developer, Furry Creator và Founder FurryMC."><meta property="og:image" content="https://azurewolf.io.vn/assets/og-cover.jpg"><meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="assets/avatar.png" type="image/png"><link rel="manifest" href="site.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="style.css?v=7">
+  <meta name="description" content="Trang cá nhân của Hiếu Trần — AzureWolf VN, Minecraft Developer và Founder FurryMC.">
+  <meta name="theme-color" content="#06111f">
+  <link rel="canonical" href="https://azurewolf.io.vn/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="AzureWolf VN | Hiếu Trần">
+  <meta property="og:description" content="Minecraft Developer, Furry Creator và Founder FurryMC.">
+  <meta property="og:image" content="https://azurewolf.io.vn/assets/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/avatar.png" type="image/png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
-  <div id="enterScreen" class="enter-screen" role="button" tabindex="0" aria-label="Mở trang cá nhân"><div class="enter-orbit" aria-hidden="true"></div><img src="assets/avatar.webp" alt="" width="112" height="112"><h2>AzureWolf VN</h2><p>Chạm để bước vào thế giới của mình</p><span><i class="fa-solid fa-paw"></i></span></div>
-  <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/background-poster.jpg" aria-hidden="true"><source src="assets/background.mp4" type="video/mp4"></video><div class="backdrop" aria-hidden="true"></div><div class="glow glow-a" aria-hidden="true"></div><div class="glow glow-b" aria-hidden="true"></div>
-  <header class="topbar"><button class="brand tab-link" type="button" data-tab="about"><span class="brand-mark"><img src="assets/avatar.webp" alt="" width="42" height="42"></span><span>AzureWolf<small>Founder profile</small></span></button><nav aria-label="Điều hướng"><button class="tab-link active" type="button" data-tab="about">Về mình</button><button class="tab-link" type="button" data-tab="furrymc">FurryMC</button><button class="tab-link" type="button" data-tab="support">Nuôi tôi</button></nav></header>
+  <div id="enterScreen" class="enter-screen" role="button" tabindex="0" aria-label="Mở trang cá nhân">
+    <div class="enter-grid" aria-hidden="true"></div>
+    <div class="enter-orbit" aria-hidden="true"></div>
+    <img src="assets/avatar.webp" alt="" width="112" height="112" data-discord-avatar>
+    <span class="enter-kicker"><i class="fa-solid fa-paw"></i> AZUREWOLF PROFILE</span>
+    <h2>Stay Furry,<br>Stay Together.</h2>
+    <p>Chạm để bước vào thế giới của mình</p>
+    <span class="enter-button"><i class="fa-solid fa-arrow-right"></i></span>
+  </div>
+
+  <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/background-poster.jpg" aria-hidden="true">
+    <source src="assets/background.mp4" type="video/mp4">
+  </video>
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <aside class="side-rail" aria-label="Điều hướng nhanh">
+    <div class="rail-clock"><strong id="liveClock">--:--</strong><span id="liveDate">--/--/----</span></div>
+    <div class="rail-logo"><i class="fa-solid fa-gamepad"></i></div>
+    <nav>
+      <button class="rail-link tab-link active" type="button" data-tab="about" aria-label="Trang chủ"><i class="fa-solid fa-house"></i><span>Trang chủ</span></button>
+      <button class="rail-link tab-link" type="button" data-tab="about" data-jump="profile" aria-label="Hồ sơ"><i class="fa-regular fa-user"></i><span>Hồ sơ</span></button>
+      <button class="rail-link tab-link" type="button" data-tab="furrymc" aria-label="FurryMC"><i class="fa-solid fa-paw"></i><span>FurryMC</span></button>
+      <a class="rail-link" href="https://github.com/trngtrunghieu70g1-stack" target="_blank" rel="noopener" aria-label="Dự án"><i class="fa-regular fa-folder"></i><span>Dự án</span></a>
+      <a class="rail-link" href="https://discord.gg/mhXyQzSPHc" target="_blank" rel="noopener" aria-label="Liên hệ"><i class="fa-regular fa-envelope"></i><span>Liên hệ</span></a>
+    </nav>
+    <div class="rail-foot"><i class="fa-solid fa-paw"></i></div>
+  </aside>
+
+  <header class="topbar">
+    <button class="brand tab-link" type="button" data-tab="about">
+      <span class="brand-mark"><img src="assets/avatar.webp" alt="" width="42" height="42" data-discord-avatar></span>
+      <span class="brand-copy"><strong>AzureWolf</strong><small>FurryMC / Personal space</small></span>
+    </button>
+    <nav aria-label="Điều hướng chính">
+      <button class="tab-link active" type="button" data-tab="about"><i class="fa-solid fa-house"></i> Trang chủ</button>
+      <button class="tab-link" type="button" data-tab="about" data-jump="profile"><i class="fa-regular fa-user"></i> Về mình</button>
+      <button class="tab-link" type="button" data-tab="furrymc"><i class="fa-solid fa-paw"></i> FurryMC</button>
+      <button class="tab-link" type="button" data-tab="support"><i class="fa-regular fa-heart"></i> Nuôi tôi</button>
+    </nav>
+    <div class="top-actions">
+      <a class="icon-link" href="https://github.com/trngtrunghieu70g1-stack" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a class="connect-btn" href="https://discord.gg/mhXyQzSPHc" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i><span>Kết nối với mình</span></a>
+    </div>
+  </header>
 
   <main id="home">
-    <div class="tab-panel active" data-panel="about"><section class="hero wrap"><div class="hero-copy"><span class="eyebrow"><i></i> Xin chào, mình là</span><h1>Hiếu Trần<span>AzureWolf VN</span></h1><p class="lead">Minecraft Developer, Furry Creator và Founder của FurryMC. Mình thích xây dựng những thế giới nơi mọi người có thể gặp gỡ, khám phá và cùng tạo nên câu chuyện riêng.</p><div class="role-list"><span><i class="fa-solid fa-server"></i> Minecraft Server Developer</span><span><i class="fa-solid fa-robot"></i> Discord Bot Developer</span><span><i class="fa-solid fa-users"></i> Community Manager</span></div><div class="hero-actions"><button class="primary-btn tab-link" type="button" data-tab="furrymc">Xem dự án FurryMC <i class="fa-solid fa-arrow-right"></i></button><button class="soft-btn tab-link" type="button" data-tab="support"><i class="fa-solid fa-heart"></i> Nuôi tôi được chứ?</button></div><div class="social-row" aria-label="Mạng xã hội"><a href="https://discord.gg/mhXyQzSPHc" target="_blank" rel="noopener" aria-label="Discord"><i class="fa-brands fa-discord"></i></a><a href="https://github.com/trngtrunghieu70g1-stack" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a><a href="https://www.facebook.com/share/1MKra5Gx7Y/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.tiktok.com/@azure_wolf_vn" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a><span class="view-badge"><i class="fa-regular fa-eye"></i> <b id="viewCount">—</b> lượt xem</span></div><article class="discord-presence"><div class="activity-logo"><i id="discordActivityIcon" class="fa-brands fa-discord"></i></div><div class="activity-copy"><small id="discordActivityType">TRẠNG THÁI DISCORD</small><strong id="discordActivityName">Đang tải hoạt động...</strong><span id="discordActivityDetail">Kết nối qua Lanyard</span><time id="discordActivityTime"></time></div><img id="discordActivityImage" alt="Ảnh hoạt động Discord" hidden></article></div>
-      <div class="portrait-stage"><div class="portrait-ring"></div><picture><source srcset="assets/avatar.webp" type="image/webp"><img src="assets/avatar.png" alt="Ảnh đại diện AzureWolf VN" width="430" height="430"></picture><div class="status-card"><span id="discordDot"></span><div><small>Trạng thái Discord</small><strong id="discordStatusText">Đang hoạt động</strong></div></div><div class="floating-tag tag-one"><i class="fa-solid fa-code"></i> Developer</div><div class="floating-tag tag-two"><i class="fa-solid fa-paw"></i> Furry Creator</div></div>
-    </section></div>
+    <div class="tab-panel active" data-panel="about">
+      <section class="home-shell wrap" id="profile">
+        <div class="hero-frame glass-panel">
+          <div class="corner corner-a" aria-hidden="true"></div><div class="corner corner-b" aria-hidden="true"></div><div class="corner corner-c" aria-hidden="true"></div><div class="corner corner-d" aria-hidden="true"></div>
 
-    <section id="furrymc" class="wrap section tab-panel" data-panel="furrymc"><div class="section-heading"><span>02 · Dự án nổi bật</span><h2>FurryMC — thế giới của chúng mình.</h2></div><article class="server-showcase glass"><picture><source srcset="assets/furrymc-logo.webp" type="image/webp"><img src="assets/furrymc-logo.png" alt="Logo FurryMC" width="128" height="128"></picture><div class="server-copy"><span class="server-label">MINECRAFT COMMUNITY SERVER</span><h3>FurryMC</h3><p>Khám phá, sinh tồn và xây dựng vùng đất của riêng bạn trong một cộng đồng thân thiện.</p><div id="serverStatus" class="server-status"><i class="checking"></i> Đang kiểm tra máy chủ...</div></div><button id="copyIpBtn" class="ip-card" type="button" data-ip="furrymc.fun"><small>ĐỊA CHỈ MÁY CHỦ</small><strong>furrymc.fun</strong><span><i class="fa-regular fa-copy"></i> Sao chép IP</span></button></article></section>
+          <div class="visual-column">
+            <div class="portrait-wrap">
+              <div class="orbit orbit-one" aria-hidden="true"></div>
+              <div class="orbit orbit-two" aria-hidden="true"></div>
+              <div class="paw-spark paw-one" aria-hidden="true"><i class="fa-solid fa-paw"></i></div>
+              <div class="paw-spark paw-two" aria-hidden="true"><i class="fa-solid fa-paw"></i></div>
+              <div class="profile-picture">
+                <img src="assets/icon-512.png" alt="Ảnh đại diện AzureWolf VN" width="512" height="512" data-discord-avatar>
+              </div>
+              <img id="discordDecoration" class="discord-decoration" alt="Trang trí avatar Discord" hidden>
+            </div>
+            <div class="identity-row">
+              <div class="discord-name"><i class="fa-brands fa-discord"></i><span><strong id="discordDisplayName">AzureWolf VN</strong><small id="discordUsername">Discord profile</small></span></div>
+              <div class="online-pill"><span id="discordDot"></span><span><strong id="discordStatusText">Đang hoạt động</strong><small>Nhận ib bất cứ lúc nào</small></span></div>
+            </div>
+          </div>
 
-    <section id="support" class="wrap section support-section tab-panel" data-panel="support"><div class="support-copy"><span class="eyebrow pink"><i></i> Góc nhỏ dễ thương</span><h2>Nuôi tôi được chứ?</h2><p>Nếu bạn thích những gì mình đang làm, một ly nước nhỏ cũng đủ tiếp sức để mình tiếp tục chăm chút FurryMC và tạo thêm nhiều điều mới.</p><button class="primary-btn pink-btn open-support" type="button"><i class="fa-solid fa-heart"></i> Gửi một chút yêu thương</button></div><div class="support-visual glass"><div class="heart-pulse"><i class="fa-solid fa-heart"></i></div><blockquote>“Mỗi sự ủng hộ đều là một cái high-five dành cho những ý tưởng sắp thành hình.”</blockquote><span>— AzureWolf</span></div></section>
+          <div class="intro-column">
+            <span class="hello-line">XIN CHÀO, MÌNH LÀ <i class="fa-solid fa-paw"></i></span>
+            <h1><span>Azure</span><em>Wolf</em></h1>
+            <p class="title-line">FurryMC Owner <b>•</b> Developer <b>•</b> Designer</p>
+            <div class="cyan-rule"></div>
+            <p class="lead">Đam mê Minecraft, phát triển FurryMC và tạo ra những trải nghiệm thú vị hơn cho cộng đồng. Luôn học hỏi, sáng tạo và không ngừng tiến bước.</p>
+
+            <div class="tag-cloud" aria-label="Thông tin nhanh">
+              <span><i class="fa-solid fa-location-dot"></i> Việt Nam</span>
+              <span><i class="fa-solid fa-paw"></i> Furry Community</span>
+              <span><i class="fa-solid fa-cube"></i> Minecraft</span>
+              <span><i class="fa-solid fa-code"></i> Plugin Developer</span>
+              <span><i class="fa-solid fa-palette"></i> UI / Design</span>
+              <span><i class="fa-solid fa-heart"></i> Always Learning</span>
+            </div>
+
+            <article class="discord-presence">
+              <div class="activity-logo"><i id="discordActivityIcon" class="fa-brands fa-discord"></i></div>
+              <div class="activity-copy"><small id="discordActivityType">TRẠNG THÁI DISCORD</small><strong id="discordActivityName">Đang tải hoạt động...</strong><span id="discordActivityDetail">Kết nối qua Lanyard</span><time id="discordActivityTime"></time></div>
+              <img id="discordActivityImage" alt="Ảnh hoạt động Discord" hidden>
+            </article>
+
+            <blockquote class="profile-quote"><i class="fa-solid fa-quote-left"></i><p>“Cùng nhau xây dựng một cộng đồng Furry thật tuyệt vời!”</p><cite>— AzureWolf</cite></blockquote>
+          </div>
+
+          <aside class="info-column">
+            <article class="side-card server-mini">
+              <div class="card-title"><span><i class="fa-solid fa-paw"></i> FURRYMC</span><button class="copy-ip-btn" type="button" data-copy-ip aria-label="Sao chép IP"><i class="fa-solid fa-arrow-up-right-from-square"></i></button></div>
+              <div class="server-mini-body">
+                <img src="assets/furrymc-logo.webp" alt="Logo FurryMC" width="62" height="62">
+                <div><strong data-server-ip>furrymc.fun</strong><span class="server-status" data-server-status><i class="checking"></i> Đang kiểm tra...</span><small>Java + Bedrock</small></div>
+              </div>
+            </article>
+
+            <article class="side-card social-card">
+              <div class="card-title"><span><i class="fa-solid fa-link"></i> KẾT NỐI VỚI MÌNH</span></div>
+              <div class="social-grid">
+                <a href="https://discord.gg/mhXyQzSPHc" target="_blank" rel="noopener" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://www.tiktok.com/@azure_wolf_vn" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://github.com/trngtrunghieu70g1-stack" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.facebook.com/share/1MKra5Gx7Y/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              </div>
+            </article>
+
+            <article class="side-card motto-card">
+              <span class="tiny-label">COMMUNITY FIRST</span>
+              <strong>Stay Furry,<br>Stay Together.</strong>
+              <div class="motto-paw"><i class="fa-solid fa-paw"></i></div>
+            </article>
+          </aside>
+        </div>
+
+        <section class="stat-strip" aria-label="Thông tin nhanh về AzureWolf">
+          <article><span class="stat-icon"><i class="fa-solid fa-code"></i></span><div><strong>20+</strong><b>Dự án & ý tưởng</b><small>Plugin / Web / Design</small></div></article>
+          <article><span class="stat-icon"><i class="fa-solid fa-users"></i></span><div><strong>10–15</strong><b>Người chơi mục tiêu</b><small>FurryMC Survival</small></div></article>
+          <article><span class="stat-icon"><i class="fa-solid fa-server"></i></span><div><strong>26.2</strong><b>Paper Server</b><small>Java + Bedrock</small></div></article>
+          <article><span class="stat-icon heart"><i class="fa-solid fa-heart"></i></span><div><strong>Luôn</strong><b>Hướng tới cộng đồng</b><small>Stay Furry · Stay Together</small></div></article>
+        </section>
+
+        <div class="scroll-hint"><span></span><i class="fa-solid fa-computer-mouse"></i><b>KHÁM PHÁ THẾ GIỚI AZUREWOLF</b><span></span></div>
+      </section>
+    </div>
+
+    <section id="furrymc" class="tab-panel page-panel" data-panel="furrymc">
+      <div class="page-wrap wrap">
+        <div class="section-heading"><span>02 · DỰ ÁN NỔI BẬT</span><h2>FurryMC — thế giới của chúng mình.</h2><p>Một server sinh tồn khám phá, nơi người chơi có thể xây dựng vùng đất riêng và cùng phát triển một cộng đồng thân thiện.</p></div>
+        <article class="server-showcase glass-panel">
+          <div class="server-logo-ring"><picture><source srcset="assets/furrymc-logo.webp" type="image/webp"><img src="assets/furrymc-logo.png" alt="Logo FurryMC" width="160" height="160"></picture></div>
+          <div class="server-copy"><span class="server-label">MINECRAFT COMMUNITY SERVER</span><h3>FurryMC</h3><p>Khám phá, sinh tồn và xây dựng vùng đất của riêng bạn. Hỗ trợ người chơi Java và Bedrock.</p><div class="server-status large" data-server-status><i class="checking"></i> Đang kiểm tra máy chủ...</div><div class="server-tags"><span>Paper 26.2</span><span>Java</span><span>Bedrock</span><span>Survival</span></div></div>
+          <button class="ip-card copy-ip-btn" type="button" data-copy-ip><small>ĐỊA CHỈ MÁY CHỦ</small><strong data-server-ip>furrymc.fun</strong><span><i class="fa-regular fa-copy"></i> Sao chép IP</span></button>
+        </article>
+        <div class="feature-grid"><article><i class="fa-solid fa-map"></i><strong>Khám phá</strong><p>Thế giới lớn, nhiều khu vực và nội dung để khám phá.</p></article><article><i class="fa-solid fa-shield-halved"></i><strong>Lands</strong><p>Tạo vùng đất, bảo vệ công trình và xây dựng cộng đồng riêng.</p></article><article><i class="fa-solid fa-wand-magic-sparkles"></i><strong>Custom Content</strong><p>Hệ thống vật phẩm, mob, kỹ năng và giao diện được chăm chút.</p></article></div>
+      </div>
+    </section>
+
+    <section id="support" class="tab-panel page-panel" data-panel="support">
+      <div class="page-wrap wrap support-layout">
+        <div class="support-copy"><span class="eyebrow pink"><i></i> GÓC NHỎ DỄ THƯƠNG</span><h2>Nuôi tôi được chứ?</h2><p>Nếu bạn thích những gì mình đang làm, một ly nước nhỏ cũng đủ tiếp sức để mình tiếp tục chăm chút FurryMC và tạo thêm nhiều điều mới.</p><button class="primary-btn pink-btn open-support" type="button"><i class="fa-solid fa-heart"></i> Gửi một chút yêu thương</button></div>
+        <div class="support-visual glass-panel"><div class="heart-pulse"><i class="fa-solid fa-heart"></i></div><blockquote>“Mỗi sự ủng hộ đều là một cái high-five dành cho những ý tưởng sắp thành hình.”</blockquote><span>— AzureWolf</span></div>
+      </div>
+    </section>
   </main>
 
-  <footer><div class="wrap"><span>© <b id="currentYear">2026</b> Hiếu Trần · AzureWolf VN</span><span>Made with <i class="fa-solid fa-heart"></i> for FurryMC</span></div></footer>
-  <dialog id="supportDialog" class="support-dialog"><button id="closeSupport" class="dialog-close" type="button" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button><div class="dialog-head"><span class="dialog-paw"><i class="fa-solid fa-paw"></i></span><div><small>NUÔI AZUREWOLF</small><h2>Một chút yêu thương 💙</h2></div></div><p>Chọn món bạn muốn “mời” mình. Mức tiền chỉ là gợi ý — sự quan tâm của bạn đã rất đáng quý rồi.</p><div class="amount-grid"><button type="button" data-amount="20000"><span>🥤</span><b>Một ly nước</b><small>20.000đ</small></button><button type="button" data-amount="50000"><span>🍜</span><b>Một bữa ăn</b><small>50.000đ</small></button><button type="button" data-amount="100000"><span>🐾</span><b>Tiếp sức FurryMC</b><small>100.000đ</small></button><button type="button" data-amount=""><span>💙</span><b>Tùy tâm</b><small>Bạn quyết định</small></button></div><div id="donationReady" class="donation-ready" hidden><img id="donationQr" alt="Mã QR ủng hộ AzureWolf" width="230" height="230"><div><small>NỘI DUNG CHUYỂN KHOẢN</small><button id="copyDonationNote" type="button"><code id="donationNote">NUOIAZUREWOLF</code> <i class="fa-regular fa-copy"></i></button><p id="bankSummary"></p></div></div><div id="donationPending" class="donation-pending"><i class="fa-solid fa-clock"></i><div><b>Góc này đang được chuẩn bị</b><span>Trong lúc chờ, bạn có thể nhắn mình qua Discord nhé.</span></div><a href="https://discord.gg/mhXyQzSPHc" target="_blank" rel="noopener">Mở Discord</a></div><small class="safe-note"><i class="fa-solid fa-shield-heart"></i> Chỉ ủng hộ khi bạn thật sự thoải mái. Không có quyền lợi trong game đi kèm.</small></dialog>
-  <aside id="musicPlayer" class="music-player"><img src="assets/music-cover.png" alt="Bìa bài Fantasy" width="50" height="50"><div class="music-meta"><small>ĐANG PHÁT</small><strong>Fantasy</strong><span>Hưng Gấu</span></div><div class="music-progress"><button id="musicSeek" type="button" aria-label="Tua bài hát"><i id="musicProgressBar"></i></button><span id="musicTime">0:00 / 0:00</span></div><div class="music-controls"><button id="musicPrev" type="button" aria-label="Phát lại"><i class="fa-solid fa-backward-step"></i></button><button id="musicPlay" class="music-play" type="button" aria-label="Phát hoặc tạm dừng"><i class="fa-solid fa-pause"></i></button><button id="musicNext" type="button" aria-label="Phát lại"><i class="fa-solid fa-forward-step"></i></button><label><i class="fa-solid fa-volume-low"></i><input id="musicVolume" type="range" min="0" max="1" step="0.01" value="0.55" aria-label="Âm lượng"></label></div></aside>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div><audio id="backgroundMusic" src="assets/music.mp3" preload="metadata" loop></audio><script src="config.js?v=8"></script><script src="script.js?v=8" defer></script>
-</body></html>
+  <aside id="musicPlayer" class="music-player">
+    <img src="assets/music-cover.png" alt="Bìa bài Fantasy" width="54" height="54">
+    <div class="music-meta"><small>ĐANG PHÁT NHẠC</small><strong>Fantasy</strong><span>Hưng Gấu</span></div>
+    <div class="music-progress"><button id="musicSeek" type="button" aria-label="Tua bài hát"><i id="musicProgressBar"></i></button><span id="musicTime">0:00 / 0:00</span></div>
+    <div class="music-controls"><button id="musicPrev" type="button" aria-label="Phát lại"><i class="fa-solid fa-backward-step"></i></button><button id="musicPlay" class="music-play" type="button" aria-label="Phát hoặc tạm dừng"><i class="fa-solid fa-pause"></i></button><button id="musicNext" type="button" aria-label="Phát lại"><i class="fa-solid fa-forward-step"></i></button><label><i class="fa-solid fa-volume-low"></i><input id="musicVolume" type="range" min="0" max="1" step="0.01" value="0.55" aria-label="Âm lượng"></label></div>
+  </aside>
+
+  <dialog id="supportDialog" class="support-dialog">
+    <button id="closeSupport" class="dialog-close" type="button" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+    <div class="dialog-head"><span class="dialog-paw"><i class="fa-solid fa-paw"></i></span><div><small>NUÔI AZUREWOLF</small><h2>Một chút yêu thương 💙</h2></div></div>
+    <p>Chọn món bạn muốn “mời” mình. Mức tiền chỉ là gợi ý — sự quan tâm của bạn đã rất đáng quý rồi.</p>
+    <div class="amount-grid"><button type="button" data-amount="20000"><span>🥤</span><b>Một ly nước</b><small>20.000đ</small></button><button type="button" data-amount="50000"><span>🍜</span><b>Một bữa ăn</b><small>50.000đ</small></button><button type="button" data-amount="100000"><span>🐾</span><b>Tiếp sức FurryMC</b><small>100.000đ</small></button><button type="button" data-amount=""><span>💙</span><b>Tùy tâm</b><small>Bạn quyết định</small></button></div>
+    <div id="donationReady" class="donation-ready" hidden><img id="donationQr" alt="Mã QR ủng hộ AzureWolf" width="230" height="230"><div><small>NỘI DUNG CHUYỂN KHOẢN</small><button id="copyDonationNote" type="button"><code id="donationNote">NUOIAZUREWOLF</code> <i class="fa-regular fa-copy"></i></button><p id="bankSummary"></p></div></div>
+    <div id="donationPending" class="donation-pending"><i class="fa-solid fa-clock"></i><div><b>Góc này đang được chuẩn bị</b><span>Trong lúc chờ, bạn có thể nhắn mình qua Discord nhé.</span></div><a href="https://discord.gg/mhXyQzSPHc" target="_blank" rel="noopener">Mở Discord</a></div>
+    <small class="safe-note"><i class="fa-solid fa-shield-heart"></i> Chỉ ủng hộ khi bạn thật sự thoải mái. Không có quyền lợi trong game đi kèm.</small>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <audio id="backgroundMusic" src="assets/music.mp3" preload="metadata" loop></audio>
+  <script src="config.js?v=9"></script>
+  <script src="script.js?v=9" defer></script>
+</body>
+</html>
