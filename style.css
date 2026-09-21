@@ -68,3 +68,15 @@ main{position:fixed;left:var(--rail);right:0;top:var(--top);bottom:0;z-index:2}.
 
 @media(max-width:920px){.music-player-restore{right:14px;bottom:14px}}
 @media(max-width:640px){.music-player-restore{right:12px;bottom:10px}.music-player-toggle{top:7px;right:7px}}
+.dialog-paw {
+    overflow: hidden;
+    padding: 3px;
+}
+
+.dialog-paw img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
