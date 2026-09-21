@@ -6,6 +6,39 @@
   const music = $("#backgroundMusic");
   const player = $("#musicPlayer");
   const playIcon = $("#musicPlay i");
+
+  // Music player: thu gọn / hiện lại và ghi nhớ lựa chọn
+  if (player) {
+    const toggle = document.createElement("button");
+    toggle.id = "musicPlayerToggle";
+    toggle.className = "music-player-toggle";
+    toggle.type = "button";
+    toggle.setAttribute("aria-label", "Ẩn trình phát nhạc");
+    toggle.setAttribute("title", "Ẩn trình phát nhạc");
+    toggle.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+    player.append(toggle);
+
+    const restore = document.createElement("button");
+    restore.id = "musicPlayerRestore";
+    restore.className = "music-player-restore";
+    restore.type = "button";
+    restore.setAttribute("aria-label", "Hiện trình phát nhạc");
+    restore.setAttribute("title", "Hiện trình phát nhạc");
+    restore.innerHTML = '<i class="fa-solid fa-music"></i><span>Nhạc</span>';
+    document.body.append(restore);
+
+    const setPlayerHidden = (hidden) => {
+      player.classList.toggle("is-hidden", hidden);
+      restore.classList.toggle("show", hidden);
+      toggle.setAttribute("aria-expanded", String(!hidden));
+      localStorage.setItem("azurewolfMusicPlayerHidden", hidden ? "1" : "0");
+    };
+
+    setPlayerHidden(localStorage.getItem("azurewolfMusicPlayerHidden") === "1");
+    toggle.addEventListener("click", () => setPlayerHidden(true));
+    restore.addEventListener("click", () => setPlayerHidden(false));
+  }
+
   let activityStartedAt = 0;
   let toastTimer;
 
