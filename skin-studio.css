@@ -14,3 +14,15 @@
 /* Keep the user control accessible even with reduced motion enabled. */
 #cursorToggle{display:block;z-index:10000}
 html.paw-effects-enabled .cursor-paw{display:block}
+
+/* AzureWolf - Fur Paw Mouse Cursor */
+/* Dùng chung nút bật/tắt hiệu ứng chuột hiện tại */
+
+html.paw-effects-enabled,
+html.paw-effects-enabled body,
+html.paw-effects-enabled a,
+html.paw-effects-enabled button,
+html.paw-effects-enabled canvas,
+html.paw-effects-enabled [role="button"] {
+  cursor: url("assets/cursor-paw.png") 24 24, auto !important;
+}

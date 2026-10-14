@@ -1,64 +1,34 @@
-# AzureWolf VN — Founder Profile
+# AzureWolf paw cursor — GitHub patch
 
-Website profile tĩnh của Hiếu Trần (AzureWolf VN), tối ưu để triển khai bằng GitHub Pages.
+Applies to https://github.com/trngtrunghieu70g1-stack/profile_azurewolf
 
-## Cấu trúc
+The repository currently has a paw **trail**, not the paw **cursor**. This patch adds
+`assets/azurewolf-paw-cursor.png` (48x48, four paw toes), enables the real browser
+cursor when the existing cursor toggle is enabled on desktop pointer devices,
+keeps the existing paw trail, and changes skin-studio cache versions from 15 to 16.
 
-- `index.html`: nội dung và SEO
-- `style.css`: giao diện responsive
-- `script.js`: trình phát nhạc, hiệu ứng và năm tự động
-- `assets/`: ảnh, video nền và nhạc
-- `CNAME`: tên miền tùy chỉnh `azurewolf.io.vn`
-- `robots.txt`, `sitemap.xml`: hỗ trợ công cụ tìm kiếm
-- `site.webmanifest`: thông tin khi thêm trang vào màn hình chính
-- `config.js`: IP Minecraft, Discord User ID và API bộ đếm
+## Windows PowerShell
 
-## Cấu hình tính năng động
+1. Extract this ZIP outside the website folder, for example to Downloads.
+2. Open PowerShell and run:
 
-Mở `config.js` để chỉnh `minecraftServerIp`, `discordUserId`, `counterApiUrl` và thông tin ủng hộ.
-
-- `minecraftServerIp`: địa chỉ Java server dùng cho trạng thái và nút sao chép.
-- `discordUserId`: điền Discord User ID gồm 17–20 chữ số. Tài khoản cần tham gia máy chủ Lanyard để API trả trạng thái.
-- `counterApiUrl`: URL backend/API riêng dùng để tăng lượt xem toàn cầu. Khi để trống, web dùng bộ đếm cục bộ trên từng trình duyệt và không giả vờ đó là tổng lượt xem toàn cầu.
-
-## Mục “Nuôi tôi được chứ?”
-
-Điền bốn giá trị sau trong `config.js` để bật VietQR tự động:
-
-```js
-bankCode: "BIDV",
-bankAccount: "SỐ_TÀI_KHOẢN",
-bankAccountName: "TEN CHU TAI KHOAN",
-donationNote: "NUOIAZUREWOLF"
+```powershell
+powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\Downloads\AzureWolf-Paw-Cursor-GitHub-Patch\install_paw_cursor.ps1" -Repo "$env:USERPROFILE\Documents\profile_azurewolf-git"
 ```
 
-Khi chưa điền, website hiện trạng thái “đang được chuẩn bị” và nút mở Discord. Khi đã điền, người xem có thể chọn 20.000đ, 50.000đ, 100.000đ hoặc tùy tâm; mã QR tự đổi theo số tiền.
+3. Then open the repository folder and push:
 
-## Ghi nhớ trình phát nhạc
+```powershell
+cd "$env:USERPROFILE\Documents\profile_azurewolf-git"
+git status
+git add skin-studio.js skin-studio.css index.html assets/azurewolf-paw-cursor.png
+git commit -m "Use AzureWolf furry paw as mouse cursor"
+git push origin main
+```
 
-Web lưu `azurewolfMusicTime` và `azurewolfMusicVolume` trong `localStorage`. Khi người dùng quay lại bằng cùng trình duyệt, bài nhạc tiếp tục từ vị trí gần nhất và giữ nguyên âm lượng. Dữ liệu chỉ nằm trên thiết bị của người dùng, không được gửi lên máy chủ.
+4. Open https://azurewolf.io.vn/ and press Ctrl+F5. Use the bottom-left paw
+effects toggle if needed. The site cursor should now be a paw, in addition to
+existing moving paw prints. Some browsers or devices ignore custom cursors.
 
-Trình phát nhạc nằm trong khu vực bên phải của trang `Về mình`, ngay dưới ảnh đại diện. Thanh điều hướng sử dụng ba tab `Về mình`, `FurryMC` và `Nuôi tôi`, thay toàn bộ nội dung ngay trong màn hình thay vì cuộn xuống section khác.
-
-Khi đã điền `discordUserId`, thẻ Discord sẽ ưu tiên hiển thị bài hát Spotify, sau đó đến game hoặc hoạt động công khai khác. Dữ liệu được làm mới sau mỗi 15 giây.
-
-## Chạy thử
-
-Chạy `python3 -m http.server 8000`, sau đó truy cập `http://localhost:8000`.
-
-## Triển khai
-
-Đẩy toàn bộ tệp lên nhánh GitHub Pages. Giữ nguyên `CNAME` nếu tên miền đã được trỏ về GitHub Pages.
-
-## Cập nhật — Skin AzureWolf cố định
-
-Skin tại assets/skin.png là PNG gốc do chủ trang cung cấp. Tab Skin Minecraft chỉ trưng bày skin này, kéo xoay 360°, thu phóng và tự xoay nhẹ. Không còn upload, chọn model hoặc phòng thử skin. Tự xoay tắt mặc định khi hệ thống yêu cầu giảm chuyển động; có nút tạm dừng. Giữ nguyên hiệu ứng chuột.
-
-Cape: đặt texture cape PNG hợp lệ ở assets/cape.png rồi đặt minecraftCapeUrl trong config.js thành "assets/cape.png". Đã kèm cape hiện đang được chọn trong hồ sơ Mojang Tr_Hiu (UUID e321c4aeb9924e439454c7413f369c54), lấy ngày 15/10/2026. Chưa tích hợp đồng bộ tài khoản premium tự động; không cần nhập mật khẩu Microsoft vào website.
-
-Chép nội dung thư mục vào repository đã clone rồi git add ., git commit và git push. Bản này chưa tự triển khai lên GitHub.
-
-Bố cục mới: khung skin 3D bên trái (tỷ lệ 4:3 trên màn hình đủ rộng), giới thiệu fursona AzureWolf bên phải; màn hình nhỏ xếp dọc. Nội dung giới thiệu nằm trong index.html, mục character-story.
-
-## Hiệu ứng dấu chân AzureWolf
-Mẫu riêng assets/azurewolf-paw.png: xanh da trời, trắng xám, 4 đệm ngón. Dấu chân 30px xuất hiện theo hướng di chuyển, lệch trái/phải luân phiên và mờ dần trong 0,85 giây. Tối đa 18 dấu cùng lúc. Có nút bật/tắt và ghi nhớ lựa chọn; tắt trên cảm ứng và chế độ giảm chuyển động. Đổi kích thước ở .cursor-paw trong skin-studio.css.
+Backups of modified source files are written to the Windows TEMP directory.
+The script is safe to rerun. It DOES NOT itself push to GitHub.
