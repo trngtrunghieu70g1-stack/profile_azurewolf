@@ -59,3 +59,6 @@ Cape: đặt texture cape PNG hợp lệ ở assets/cape.png rồi đặt minecr
 Chép nội dung thư mục vào repository đã clone rồi git add ., git commit và git push. Bản này chưa tự triển khai lên GitHub.
 
 Bố cục mới: khung skin 3D bên trái (tỷ lệ 4:3 trên màn hình đủ rộng), giới thiệu fursona AzureWolf bên phải; màn hình nhỏ xếp dọc. Nội dung giới thiệu nằm trong index.html, mục character-story.
+
+## Hiệu ứng dấu chân AzureWolf
+Mẫu riêng assets/azurewolf-paw.png: xanh da trời, trắng xám, 4 đệm ngón. Dấu chân 30px xuất hiện theo hướng di chuyển, lệch trái/phải luân phiên và mờ dần trong 0,85 giây. Tối đa 18 dấu cùng lúc. Có nút bật/tắt và ghi nhớ lựa chọn; tắt trên cảm ứng và chế độ giảm chuyển động. Đổi kích thước ở .cursor-paw trong skin-studio.css.
