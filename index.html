@@ -27,8 +27,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=10">
-  <link rel="stylesheet" href="skin-studio.css?v=10">
+  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="skin-studio.css?v=12">
 </head>
 <body>
   <div id="enterScreen" class="enter-screen" role="button" tabindex="0" aria-label="Mở trang cá nhân">
@@ -186,27 +186,15 @@
     </section>
     <section id="skins" class="tab-panel page-panel" data-panel="skins">
       <div class="page-wrap wrap">
-        <div class="section-heading"><span>03 · MINECRAFT SKIN STUDIO</span><h2>Một diện mạo. Mọi góc nhìn.</h2><p>Khám phá skin của bạn trong không gian 3D — kéo để xoay trọn 360°.</p></div>
-        <div class="skin-layout">
-          <div class="skin-stage glass-panel" id="skinStage">
-            <span class="skin-badge">AZUREWOLF · SKIN VIEWER</span>
-            <canvas id="skinCanvas" aria-label="Mô hình skin Minecraft 3D; dùng các nút bên dưới để xoay bằng bàn phím"></canvas>
-            <div id="skinEmpty" class="skin-empty"><i class="fa-solid fa-cube"></i><h3>Skin của bạn ở đây</h3><p>Chọn một file skin PNG để bắt đầu.</p></div>
-            <span class="skin-stage-hint">Kéo để xoay · Cuộn để thu phóng</span>
+        <div class="section-heading"><span>03 · MINECRAFT</span><h2>AzureWolf trong Minecraft.</h2><p>Tr_Hiu · Một góc nhỏ của mình trong thế giới khối vuông.</p></div>
+        <div class="skin-showcase glass-panel">
+          <div class="skin-stage" id="skinStage">
+            <span class="skin-badge">AZUREWOLF · Tr_Hiu</span>
+            <canvas id="skinCanvas" tabindex="0" aria-label="Skin AzureWolf 3D. Dùng phím mũi tên trái phải để xoay." ></canvas>
+            <div id="skinEmpty" class="skin-empty"><p id="skinStatus" role="status">Đang tải skin AzureWolf…</p></div>
+            <span class="skin-stage-hint">Kéo để xoay 360° · Cuộn để thu phóng</span>
           </div>
-          <div class="skin-settings glass-panel">
-            <span class="tiny-label">YOUR SKIN, YOUR STYLE</span><h3>Phòng thử skin</h3>
-            <label class="skin-upload" for="skinFile"><i class="fa-solid fa-arrow-up-from-bracket"></i><strong>Chọn skin PNG</strong><span>64×64 hoặc 64×32 · tối đa 2 MB</span><input id="skinFile" type="file" accept="image/png,.png"></label>
-            <p id="skinStatus" class="skin-status" role="status" aria-live="polite">Ảnh được xử lý trên thiết bị, không gửi lên máy chủ.</p>
-            <fieldset id="skinControls" disabled><legend>Tùy chỉnh hiển thị</legend>
-              <label>Kiểu tay<select id="skinModel"><option value="auto">Tự nhận diện</option><option value="default">Steve · tay rộng</option><option value="slim">Alex · tay nhỏ</option></select></label>
-              <label>Chuyển động<select id="skinMotion"><option value="none">Đứng yên</option><option value="walk">Đi bộ</option><option value="run">Chạy</option></select></label>
-              <label class="skin-check"><input type="checkbox" id="skinAuto"> Tự xoay 360°</label>
-              <label>Thu phóng<input id="skinZoom" type="range" min="0.5" max="1.5" step="0.05" value="0.9"></label>
-              <div class="skin-buttons"><button id="skinLeft" type="button" aria-label="Xoay trái 45 độ">↶ Xoay trái</button><button id="skinRight" type="button" aria-label="Xoay phải 45 độ">Xoay phải ↷</button><button id="skinReset" type="button">Đặt lại góc nhìn</button><button id="skinDownload" type="button">↓ Tải skin PNG</button></div>
-            </fieldset>
-            <p class="skin-note">Skin tải lên chỉ xem thử trong phiên này. Để mọi người thấy skin của AzureWolf khi mở trang, chủ web có thể đặt skin mặc định trong cấu hình.</p>
-          </div>
+          <div class="skin-view-actions"><button id="skinAuto" type="button" aria-pressed="true">Tạm dừng xoay</button><button id="skinReset" type="button">Góc nhìn ban đầu</button></div>
         </div>
       </div>
     </section>
@@ -233,8 +221,8 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <audio id="backgroundMusic" src="assets/music.mp3" preload="metadata" loop></audio>
-  <script src="config.js?v=10"></script>
-  <script src="script.js?v=10" defer></script>
-  <script src="skin-studio.js?v=10" defer></script>
+  <script src="config.js?v=12"></script>
+  <script src="script.js?v=12" defer></script>
+  <script src="skin-studio.js?v=12" defer></script>
 </body>
 </html>

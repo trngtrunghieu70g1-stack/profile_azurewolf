@@ -1,6 +1,7 @@
 window.PROFILE_CONFIG = {
-  // Đường dẫn skin PNG công khai. Để trống khi chưa có skin.
-  minecraftSkinUrl: "", // Ví dụ: "assets/skin.png"
+  // Skin cố định của AzureWolf. Cape PNG tùy chọn.
+  minecraftCapeUrl: "assets/cape.png?v=12", // Cape hiện tại từ hồ sơ Mojang Tr_Hiu
+  minecraftSkinUrl: "assets/skin.png?v=12",
   minecraftSkinModel: "auto", // auto, default (Steve), slim (Alex)
   minecraftServerIp: "furrymc.fun",
   discordUserId: "1315287238120046596",

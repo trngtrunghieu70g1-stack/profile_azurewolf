@@ -50,24 +50,10 @@ Chạy `python3 -m http.server 8000`, sau đó truy cập `http://localhost:8000
 
 Đẩy toàn bộ tệp lên nhánh GitHub Pages. Giữ nguyên `CNAME` nếu tên miền đã được trỏ về GitHub Pages.
 
-## Cập nhật 15/10/2026 — Hiệu ứng chuột & Skin Studio
+## Cập nhật — Skin AzureWolf cố định
 
-- Hiệu ứng ánh sáng xanh và hạt sáng theo chuột, có nút bật/tắt và nhớ lựa chọn.
-- Tắt hiệu ứng trên màn hình cảm ứng hoặc khi hệ thống bật giảm chuyển động.
-- Tab Skin Minecraft: chọn PNG 64×64 / 64×32, tối đa 2 MB; kiểm tra chữ ký PNG.
-- Kéo xoay 360°, tự xoay, thu phóng, chọn Steve/Alex, đi bộ/chạy, đặt lại góc và tải PNG.
-- Chọn file chỉ xem trên máy người truy cập, không đăng lên hosting và không lưu khi tải lại trang.
-- Bộ dựng skinview3d 3.4.1 đóng gói tại vendor/ (kèm giấy phép), chỉ tải khi cần skin.
-- Trình duyệt cần WebGL; có thông báo nếu thiết bị không hỗ trợ.
+Skin tại assets/skin.png là PNG gốc do chủ trang cung cấp. Tab Skin Minecraft chỉ trưng bày skin này, kéo xoay 360°, thu phóng và tự xoay nhẹ. Không còn upload, chọn model hoặc phòng thử skin. Tự xoay tắt mặc định khi hệ thống yêu cầu giảm chuyển động; có nút tạm dừng. Giữ nguyên hiệu ứng chuột.
 
-### Đặt skin AzureWolf mặc định cho tất cả người xem
+Cape: đặt texture cape PNG hợp lệ ở assets/cape.png rồi đặt minecraftCapeUrl trong config.js thành "assets/cape.png". Đã kèm cape hiện đang được chọn trong hồ sơ Mojang Tr_Hiu (UUID e321c4aeb9924e439454c7413f369c54), lấy ngày 15/10/2026. Chưa tích hợp đồng bộ tài khoản premium tự động; không cần nhập mật khẩu Microsoft vào website.
 
-1. Tải **file skin PNG gốc** (không phải ảnh chụp mô hình) từ nút Download của trang skin.
-2. Đặt file tại `assets/skin.png`.
-3. Trong `config.js`, sửa `minecraftSkinUrl: "assets/skin.png"`.
-4. Đặt `minecraftSkinModel` thành `auto`, `default` (Steve) hoặc `slim` (Alex).
-5. Upload toàn bộ nội dung thư mục này lên hosting/GitHub Pages, giữ nguyên CNAME.
-
-Bản cập nhật chưa bao gồm skin cá nhân vì file đính kèm chỉ có ảnh chụp màn hình.
-Đây là mã nguồn website tĩnh; muốn có trang quản trị upload và lưu skin công khai
-trực tiếp trên web thì cần bổ sung backend và xác thực chủ sở hữu.
+Chép nội dung thư mục vào repository đã clone rồi git add ., git commit và git push. Bản này chưa tự triển khai lên GitHub.
