@@ -10,3 +10,7 @@
 .cursor-paw{position:fixed;left:0;top:0;width:30px;height:30px;pointer-events:none;z-index:9998;background:url('assets/azurewolf-paw.png') center/contain no-repeat;transform:translate(-50%,-50%) rotate(var(--paw-angle));animation:pawFade .85s ease-out forwards;will-change:opacity,transform}
 @keyframes pawFade{0%{opacity:.9;transform:translate(-50%,-50%) rotate(var(--paw-angle)) scale(.85)}20%{opacity:.8;transform:translate(-50%,-50%) rotate(var(--paw-angle)) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--paw-angle)) scale(.65)}}
 @media(pointer:coarse),(prefers-reduced-motion:reduce){.cursor-paw{display:none}}
+
+/* Keep the user control accessible even with reduced motion enabled. */
+#cursorToggle{display:block;z-index:10000}
+html.paw-effects-enabled .cursor-paw{display:block}

@@ -3,8 +3,9 @@
   const $ = id => document.getElementById(id);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(pointer: fine)');
-  let effects = true;
-  try { effects = localStorage.getItem('azurewolfCursor') !== 'off'; } catch {}
+  let explicitPreference = null;
+  try { explicitPreference = localStorage.getItem('azurewolfCursor'); } catch {}
+  let effects = explicitPreference ? explicitPreference === 'on' : !reduced.matches;
   const toggle = $('cursorToggle'), glow = $('cursorGlow');
   const paws = new Set();
   let previous = null, lastStamp = 0, side = 1;
@@ -15,17 +16,18 @@
   function syncEffects() {
     toggle.setAttribute('aria-pressed', String(effects));
     toggle.textContent = `🐾 Hiệu ứng chuột: ${effects ? 'Bật' : 'Tắt'}`;
-    if (!effects || reduced.matches || !fine.matches) clearTrail();
+    document.documentElement.classList.toggle('paw-effects-enabled', effects);
+    if (!effects) clearTrail();
   }
   syncEffects();
   toggle.addEventListener('click', () => {
-    effects = !effects; syncEffects();
+    effects = !effects; explicitPreference = effects ? 'on' : 'off'; syncEffects();
     try { localStorage.setItem('azurewolfCursor', effects ? 'on' : 'off'); } catch {}
   });
   // Load the stamp once; each footprint reuses the cached image.
   const pawAsset = new Image(); pawAsset.src = 'assets/azurewolf-paw.png';
   document.addEventListener('pointermove', e => {
-    if (!effects || reduced.matches || !fine.matches || e.pointerType === 'touch' || document.hidden) return;
+    if (!effects || e.pointerType === 'touch' || document.hidden) return;
     const point = {x:e.clientX, y:e.clientY};
     if (!previous) { previous = point; return; }
     const dx = point.x - previous.x, dy = point.y - previous.y;
@@ -46,7 +48,7 @@
   document.addEventListener('pointerleave', clearTrail);
   document.addEventListener('visibilitychange', () => { if(document.hidden) clearTrail(); });
   window.addEventListener('blur', clearTrail);
-  reduced.addEventListener('change', syncEffects);
+  reduced.addEventListener('change', () => { if (!explicitPreference) effects = !reduced.matches; syncEffects(); });
   fine.addEventListener('change', syncEffects);
 
   const panel = $('skins'), stage = $('skinStage');
