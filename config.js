@@ -1,4 +1,7 @@
 window.PROFILE_CONFIG = {
+  // Đường dẫn skin PNG công khai. Để trống khi chưa có skin.
+  minecraftSkinUrl: "", // Ví dụ: "assets/skin.png"
+  minecraftSkinModel: "auto", // auto, default (Steve), slim (Alex)
   minecraftServerIp: "furrymc.fun",
   discordUserId: "1315287238120046596",
   counterApiUrl: "",

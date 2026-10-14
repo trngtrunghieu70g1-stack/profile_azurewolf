@@ -97,7 +97,7 @@
   }
   $$(".tab-link").forEach(button => button.addEventListener("click", () => showTab(button.dataset.tab, button.dataset.jump || "")));
   const initialTab = location.hash.replace("#", "");
-  if (["about", "furrymc", "support"].includes(initialTab)) showTab(initialTab);
+  if (["about", "furrymc", "support", "skins"].includes(initialTab)) showTab(initialTab);
 
   if (music) {
     music.addEventListener("loadedmetadata", () => {
