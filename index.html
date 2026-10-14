@@ -27,8 +27,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=12">
-  <link rel="stylesheet" href="skin-studio.css?v=12">
+  <link rel="stylesheet" href="style.css?v=13">
+  <link rel="stylesheet" href="skin-studio.css?v=13">
 </head>
 <body>
   <div id="enterScreen" class="enter-screen" role="button" tabindex="0" aria-label="Mở trang cá nhân">
@@ -187,6 +187,7 @@
     <section id="skins" class="tab-panel page-panel" data-panel="skins">
       <div class="page-wrap wrap">
         <div class="section-heading"><span>03 · MINECRAFT</span><h2>AzureWolf trong Minecraft.</h2><p>Tr_Hiu · Một góc nhỏ của mình trong thế giới khối vuông.</p></div>
+        <div class="character-layout">
         <div class="skin-showcase glass-panel">
           <div class="skin-stage" id="skinStage">
             <span class="skin-badge">AZUREWOLF · Tr_Hiu</span>
@@ -195,6 +196,21 @@
             <span class="skin-stage-hint">Kéo để xoay 360° · Cuộn để thu phóng</span>
           </div>
           <div class="skin-view-actions"><button id="skinAuto" type="button" aria-pressed="true">Tạm dừng xoay</button><button id="skinReset" type="button">Góc nhìn ban đầu</button></div>
+        </div>
+        <article class="character-story glass-panel" aria-labelledby="characterTitle">
+          <span class="character-kicker">MEET MY FURSONA</span>
+          <h3 id="characterTitle">Azure<span>Wolf</span><i class="fa-solid fa-paw" aria-hidden="true"></i></h3>
+          <p class="character-lead">Một chú sói xanh, một thế giới của riêng mình.</p>
+          <p>AzureWolf là nhân vật furry đại diện cho mình — một chú sói với tông xanh da trời và trắng xám. Đây là hình ảnh mình mang theo từ không gian cá nhân đến thế giới Minecraft.</p>
+          <dl class="character-details">
+            <div><dt>Nhân vật</dt><dd>Sói · Wolf fursona</dd></div>
+            <div><dt>Màu chủ đạo</dt><dd><span class="fur-swatch blue" aria-hidden="true"></span>Xanh da trời <span class="fur-swatch white" aria-hidden="true"></span>Trắng xám</dd></div>
+            <div><dt>Trong Minecraft</dt><dd>Tr_Hiu</dd></div>
+            <div><dt>Cộng đồng của mình</dt><dd>FurryMC</dd></div>
+          </dl>
+          <div class="character-note"><span>PHIÊN BẢN KHỐI VUÔNG</span><p>Vẫn là AzureWolf, nhưng trong một hình dáng khác. Xoay mô hình bên cạnh để khám phá bộ skin và chiếc cape của mình từ mọi góc nhìn.</p></div>
+          <div class="character-tags"><span>🐾 Furry</span><span>💙 AzureWolf</span><span>⛏ Minecraft</span></div>
+        </article>
         </div>
       </div>
     </section>
@@ -221,8 +237,8 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <audio id="backgroundMusic" src="assets/music.mp3" preload="metadata" loop></audio>
-  <script src="config.js?v=12"></script>
-  <script src="script.js?v=12" defer></script>
-  <script src="skin-studio.js?v=12" defer></script>
+  <script src="config.js?v=13"></script>
+  <script src="script.js?v=13" defer></script>
+  <script src="skin-studio.js?v=13" defer></script>
 </body>
 </html>

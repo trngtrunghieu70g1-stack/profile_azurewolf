@@ -57,3 +57,5 @@ Skin tại assets/skin.png là PNG gốc do chủ trang cung cấp. Tab Skin Min
 Cape: đặt texture cape PNG hợp lệ ở assets/cape.png rồi đặt minecraftCapeUrl trong config.js thành "assets/cape.png". Đã kèm cape hiện đang được chọn trong hồ sơ Mojang Tr_Hiu (UUID e321c4aeb9924e439454c7413f369c54), lấy ngày 15/10/2026. Chưa tích hợp đồng bộ tài khoản premium tự động; không cần nhập mật khẩu Microsoft vào website.
 
 Chép nội dung thư mục vào repository đã clone rồi git add ., git commit và git push. Bản này chưa tự triển khai lên GitHub.
+
+Bố cục mới: khung skin 3D bên trái (tỷ lệ 4:3 trên màn hình đủ rộng), giới thiệu fursona AzureWolf bên phải; màn hình nhỏ xếp dọc. Nội dung giới thiệu nằm trong index.html, mục character-story.
